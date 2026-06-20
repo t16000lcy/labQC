@@ -1,9 +1,9 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="zh-Hant">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>瑼ａ?蝘炎撽垣閰?/title>
+    <title>檢驗科檢驗諮詢</title>
     <style>
 :root {
   --ink: #17242a;
@@ -656,85 +656,86 @@ input {
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="#home" aria-label="瑼ａ?蝘炎撽垣閰ａ???>
-        <span class="brand-mark">瑼?/span>
+      <a class="brand" href="#home" aria-label="檢驗科檢驗諮詢首頁">
+        <span class="brand-mark">檢</span>
         <span>
-          <strong>瑼ａ?蝘炎撽垣閰?/strong>
+          <strong>檢驗科檢驗諮詢</strong>
           <small>Laboratory Consultation</small>
         </span>
       </a>
-      <nav class="nav-links" aria-label="銝餉?撠汗">
-        <a href="#faq">銵? FAQ</a>
-        <a href="#tests">瑼ａ??亥岷</a>
-        <a href="#assistant">AI 撠??/a>
-        <a href="#deploy">?嗥?閬?</a>
+      <nav class="nav-links" aria-label="主要導覽">
+        <a href="#faq">衛教 FAQ</a>
+        <a href="#tests">檢驗查詢</a>
+        <a href="#assistant">AI 小助理</a>
+        <a href="#deploy">架站規劃</a>
       </nav>
     </header>
 
     <main id="home">
       <section class="hero">
-        <img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201600%20900%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20x2%3D%221%22%3E%3Cstop%20stop-color%3D%22%230b3b42%22%2F%3E%3Cstop%20offset%3D%220.55%22%20stop-color%3D%22%23167d7a%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23f2f7f6%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%221600%22%20height%3D%22900%22%20fill%3D%22url(%23g)%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23ffffff%22%20stroke-opacity%3D%220.55%22%20stroke-width%3D%2210%22%3E%3Crect%20x%3D%22880%22%20y%3D%22210%22%20width%3D%22430%22%20height%3D%22280%22%20rx%3D%2228%22%2F%3E%3Cpath%20d%3D%22M960%20555h270M1010%20620h170M1095%20210v280%22%2F%3E%3Ccircle%20cx%3D%22700%22%20cy%3D%22360%22%20r%3D%22105%22%2F%3E%3Cpath%20d%3D%22M610%20520c70-75%20180-75%20250%200%22%2F%3E%3C%2Fg%3E%3Cg%20fill%3D%22%23ffffff%22%20opacity%3D%220.88%22%3E%3Crect%20x%3D%22104%22%20y%3D%22600%22%20width%3D%22520%22%20height%3D%2234%22%20rx%3D%2217%22%2F%3E%3Crect%20x%3D%22104%22%20y%3D%22660%22%20width%3D%22390%22%20height%3D%2226%22%20rx%3D%2213%22%2F%3E%3Crect%20x%3D%22104%22%20y%3D%22710%22%20width%3D%22465%22%20height%3D%2226%22%20rx%3D%2213%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="?恍瑼ａ?隢株岷?瑼Ｘ??憓? />
+        <img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201600%20900%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20x2%3D%221%22%3E%3Cstop%20stop-color%3D%22%230b3b42%22%2F%3E%3Cstop%20offset%3D%220.55%22%20stop-color%3D%22%23167d7a%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23f2f7f6%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%221600%22%20height%3D%22900%22%20fill%3D%22url(%23g)%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23ffffff%22%20stroke-opacity%3D%220.55%22%20stroke-width%3D%2210%22%3E%3Crect%20x%3D%22880%22%20y%3D%22210%22%20width%3D%22430%22%20height%3D%22280%22%20rx%3D%2228%22%2F%3E%3Cpath%20d%3D%22M960%20555h270M1010%20620h170M1095%20210v280%22%2F%3E%3Ccircle%20cx%3D%22700%22%20cy%3D%22360%22%20r%3D%22105%22%2F%3E%3Cpath%20d%3D%22M610%20520c70-75%20180-75%20250%200%22%2F%3E%3C%2Fg%3E%3Cg%20fill%3D%22%23ffffff%22%20opacity%3D%220.88%22%3E%3Crect%20x%3D%22104%22%20y%3D%22600%22%20width%3D%22520%22%20height%3D%2234%22%20rx%3D%2217%22%2F%3E%3Crect%20x%3D%22104%22%20y%3D%22660%22%20width%3D%22390%22%20height%3D%2226%22%20rx%3D%2213%22%2F%3E%3Crect%20x%3D%22104%22%20y%3D%22710%22%20width%3D%22465%22%20height%3D%2226%22%20rx%3D%2213%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="醫院檢驗諮詢與採檢服務環境" />
         <div class="hero-overlay">
-          <p class="eyebrow">?箸瑼ａ?蝬?雿平蝟餌絞</p>
-          <h1>?犖?質??炎撽????/h1>
+          <p class="eyebrow">智慧檢驗綜合作業系統</p>
+          <h1>病人抽血與檢驗衛教入口</h1>
           <p class="hero-copy">
-            ?游??質????瑼Ｘ釣???炎撽??格?蝢抵? AI 蝺?隢株岷嚗??犖?游翰?曉?臭縑隞餌?瑼ａ?鞈???          </p>
-          <div class="hero-actions" aria-label="敹恍?雿?>
-            <a class="primary-action" href="#assistant">?? AI 撠??/a>
-            <a class="secondary-action" href="#tests">?亥岷瑼ａ??</a>
+            整合抽血時間、採檢注意事項、檢驗項目意義與 AI 線上諮詢，讓病人更快找到可信任的檢驗資訊。
+          </p>
+          <div class="hero-actions" aria-label="快速操作">
+            <a class="primary-action" href="#assistant">開啟 AI 小助理</a>
+            <a class="secondary-action" href="#tests">查詢檢驗項目</a>
           </div>
         </div>
       </section>
 
-      <section class="value-band" aria-label="瑼ａ?蝘??臭蝙?賢??>
+      <section class="value-band" aria-label="檢驗科願景使命價值">
         <div>
-          <span>憿</span>
-          <strong>蝚血???璅??移皞摮貉??箸?典?撖阡?摰?/strong>
+          <span>願景</span>
+          <strong>符合國際標準的精準醫學與智慧臨床實驗室</strong>
         </div>
         <div>
-          <span>雿踹</span>
-          <strong>摰?芾釭????脖犖?雁霅瑕祕撽恕??鈭箏???/strong>
+          <span>使命</span>
+          <strong>完整優質服務、培育人才、維護實驗室與病人安全</strong>
         </div>
         <div>
-          <span>?孵?/span>
-          <strong>撠平?迤蝣箝翰????/strong>
+          <span>價值</span>
+          <strong>專業、正確、快速、安全</strong>
         </div>
       </section>
 
-      <section class="quick-grid" aria-label="撣貊??">
+      <section class="quick-grid" aria-label="常用服務">
         <article class="quick-card">
-          <span class="card-icon">??/span>
-          <h2>?質?????</h2>
-          <p>?曹??喲曹? 08:00-17:00嚗勗 08:00-12:00?祕??畾菔?靘?批?皞?/p>
+          <span class="card-icon">時</span>
+          <h2>抽血服務時間</h2>
+          <p>週一至週五 08:00-17:00，週六 08:00-12:00。實際時段請依院內公告為準。</p>
         </article>
         <article class="quick-card">
-          <span class="card-icon">蝛?/span>
-          <h2>蝛箄??</h2>
-          <p>銵蝟??貊?瘝寡?蝑??桀虜?蝛箄嚗?衣征?嫣?隞仿??瑼ａ??閬??箸???/p>
+          <span class="card-icon">空</span>
+          <h2>空腹提醒</h2>
+          <p>血糖、三酸甘油脂等項目常需空腹；是否空腹仍以醫囑與檢驗項目規定為準。</p>
         </article>
         <article class="quick-card">
-          <span class="card-icon">瑼?/span>
-          <h2>瑼ａ??儔</h2>
-          <p>隞亦?鈭箸???閮隤芣?瑼ａ??桃??炎擃??釣????撣貉??賊????/p>
+          <span class="card-icon">檢</span>
+          <h2>檢驗意義</h2>
+          <p>以病人易懂語言說明檢驗目的、檢體類型、注意事項與常見相關項目。</p>
         </article>
         <article class="quick-card">
-          <span class="card-icon">??/span>
-          <h2>AI 蝺?隢株岷</h2>
-          <p>??蝭????潭炎撽??詨?鞈?嚗瘜?隞?撣怨那?瑯祥???勗??方???/p>
+          <span class="card-icon">助</span>
+          <h2>AI 線上諮詢</h2>
+          <p>回答範圍限定於檢驗科核准資料，無法取代醫師診斷、治療與報告判讀。</p>
         </article>
       </section>
 
       <section id="faq" class="section-block">
         <div class="section-heading">
           <p class="eyebrow">Patient Education</p>
-          <h2>FAQ 銵???/h2>
+          <h2>FAQ 衛教頁</h2>
         </div>
-        <div class="filter-row" role="tablist" aria-label="FAQ ??">
-          <button class="chip active" data-faq-filter="all" type="button">?券</button>
-          <button class="chip" data-faq-filter="blood" type="button">?質?</button>
-          <button class="chip" data-faq-filter="fasting" type="button">蝛箄</button>
-          <button class="chip" data-faq-filter="specimen" type="button">瑼ａ?</button>
-          <button class="chip" data-faq-filter="report" type="button">?勗?</button>
+        <div class="filter-row" role="tablist" aria-label="FAQ 分類">
+          <button class="chip active" data-faq-filter="all" type="button">全部</button>
+          <button class="chip" data-faq-filter="blood" type="button">抽血</button>
+          <button class="chip" data-faq-filter="fasting" type="button">空腹</button>
+          <button class="chip" data-faq-filter="specimen" type="button">檢體</button>
+          <button class="chip" data-faq-filter="report" type="button">報告</button>
         </div>
         <div id="faqList" class="faq-list"></div>
       </section>
@@ -742,19 +743,20 @@ input {
       <section id="tests" class="section-block split-section">
         <div class="section-heading">
           <p class="eyebrow">Test Search</p>
-          <h2>瑼ａ???摮閰?/h2>
+          <h2>檢驗項目關鍵字查詢</h2>
           <p>
-            蝭?鞈??舀??Google Sheet ?澆? CSV 蝬剛風嚗閰Ｘ?瘥?銝剜??迂???蝔晞誨蝣潦???典??儔??          </p>
+            範例資料可改由 Google Sheet 發布 CSV 維護；查詢會比對中文名稱、英文名稱、代碼、別名與臨床意義。
+          </p>
         </div>
         <div class="search-panel">
-          <label for="testSearch">瑼ａ??</label>
+          <label for="testSearch">檢驗項目</label>
           <div class="search-box">
-            <input id="testSearch" type="search" placeholder="靘?嚗?蝟???BC?征?? />
-            <button id="clearSearch" type="button" aria-label="皜??">?</button>
+            <input id="testSearch" type="search" placeholder="例如：血糖、肝功能、CBC、空腹" />
+            <button id="clearSearch" type="button" aria-label="清除搜尋">×</button>
           </div>
           <div class="source-row">
-            <span id="dataSourceLabel">鞈?靘?嚗ata/tests.csv</span>
-            <button id="reloadData" class="text-button" type="button">?頛</button>
+            <span id="dataSourceLabel">資料來源：data/tests.csv</span>
+            <button id="reloadData" class="text-button" type="button">重新載入</button>
           </div>
           <div id="testResults" class="result-list" aria-live="polite"></div>
         </div>
@@ -763,27 +765,28 @@ input {
       <section id="assistant" class="assistant-section">
         <div class="assistant-copy">
           <p class="eyebrow">AI Assistant</p>
-          <h2>AI 撠??/h2>
+          <h2>AI 小助理</h2>
           <p>
-            撠???? FAQ ?炎撽??株??蝑??迤撘??臬????敺垢嚗 OpenAI API ?剝? RAG ?亥?摨怠?閬?          </p>
+            小助理會先從 FAQ 與檢驗項目資料找答案。正式版可將問題送到後端，由 OpenAI API 搭配 RAG 知識庫回覆。
+          </p>
           <ul class="scope-list">
-            <li>?舐?嚗銵???征?嫘瑼Ｘ釣???炎撽??格?蝢押?/li>
-            <li>銝?嚗那?瑯祥??亥矽?氬犖?勗??湧?摨血?瑯?/li>
-            <li>?亦??犖??隢??單晾?怠葦?亥那??/li>
+            <li>可答：抽血時間、空腹、採檢注意事項、檢驗項目意義。</li>
+            <li>不答：診斷、治療、用藥調整、個人報告嚴重度判斷。</li>
+            <li>急症或個人病情請立即洽醫師或急診。</li>
           </ul>
         </div>
-        <div class="chat-shell" aria-label="AI 撠??閰?>
+        <div class="chat-shell" aria-label="AI 小助理對話">
           <div class="chat-header">
             <div>
-              <strong>瑼ａ?隢株岷撠??/strong>
-              <span>蝺?銵?隢株岷</span>
+              <strong>檢驗諮詢小助理</strong>
+              <span>線上衛教諮詢</span>
             </div>
             <span class="status-dot">RAG Ready</span>
           </div>
           <div id="chatMessages" class="chat-messages"></div>
           <form id="chatForm" class="chat-form">
-            <input id="chatInput" name="message" autocomplete="off" placeholder="隢撓?交炎撽??質???" />
-            <button type="submit">?</button>
+            <input id="chatInput" name="message" autocomplete="off" placeholder="請輸入檢驗或抽血問題" />
+            <button type="submit">送出</button>
           </form>
         </div>
       </section>
@@ -791,27 +794,27 @@ input {
       <section id="deploy" class="section-block deploy-grid">
         <div class="section-heading">
           <p class="eyebrow">Launch Plan</p>
-          <h2>?函蔡?雁霅瑁???/h2>
+          <h2>部署與維護規劃</h2>
         </div>
         <article>
-          <h3>鞈?蝬剛風</h3>
-          <p>隞?Google Sheet 蝬剛風瑼ａ??嚗撣 CSV 敺‵??`app.js` ??`GOOGLE_SHEET_CSV_URL`??/p>
+          <h3>資料維護</h3>
+          <p>以 Google Sheet 維護檢驗項目，發布為 CSV 後填入 `app.js` 的 `GOOGLE_SHEET_CSV_URL`。</p>
         </article>
         <article>
-          <h3>甇???函蔡</h3>
-          <p>?垢?舫蝵脣 Vercel?loudflare Pages ??Google Cloud Storage嚗I 敺垢撱箄降雿輻 Vercel Functions?loud Run ??Cloud Functions??/p>
+          <h3>正式部署</h3>
+          <p>前端可部署到 Vercel、Cloudflare Pages 或 Google Cloud Storage；AI 後端建議使用 Vercel Functions、Cloud Run 或 Cloud Functions。</p>
         </article>
         <article>
-          <h3>蝬脣???SSL</h3>
-          <p>蝬脣??舐 GoDaddy?loudflare ??Namecheap 閮餃?嚗NS ??SSL 撱箄降鈭斤策 Cloudflare 蝞∠???/p>
+          <h3>網域與 SSL</h3>
+          <p>網域可由 GoDaddy、Cloudflare 或 Namecheap 註冊，DNS 與 SSL 建議交給 Cloudflare 管理。</p>
         </article>
       </section>
     </main>
 
-    <button id="floatingAssistant" class="floating-assistant" type="button" aria-label="?? AI 撠??>AI</button>
+    <button id="floatingAssistant" class="floating-assistant" type="button" aria-label="前往 AI 小助理">AI</button>
 
     <footer class="site-footer">
-      <p>穢 瑼ａ?蝘炎撽垣閰?MVP?I ????銵???銝?誨?怎?撠平?斗??/p>
+      <p>© 檢驗科檢驗諮詢 MVP。AI 回答僅供衛教參考，不能取代醫療專業判斷。</p>
     </footer>
 
     <script>
@@ -821,90 +824,90 @@ const CHAT_API_ENDPOINT = "";
 const faqItems = [
   {
     category: "blood",
-    question: "?質??隞亙?瘞游?嚗?,
-    answer: "憭?質???臭誑????偌??怠?閬?蝳?嚗??踹??怎?憌脫????～??憟嗉??移??
+    question: "抽血前可以喝水嗎？",
+    answer: "多數抽血項目可以喝少量白開水。若醫囑要求禁食，請避免含糖飲料、咖啡、茶、牛奶與酒精。"
   },
   {
     category: "fasting",
-    question: "?芯?瑼ａ?撣賊?閬征?對?",
-    answer: "蝛箄銵蝟??貊?瘝寡???????寞?隞??瑼Ｘ撣賊?閬征?嫘祕??瘙?隞仿撣恍?蝡??株?瑼ａ?蝘?蝭皞?
+    question: "哪些檢驗常需要空腹？",
+    answer: "空腹血糖、三酸甘油脂、部分血脂與特殊代謝檢查常需要空腹。實際需求請以醫師開立項目與檢驗科規範為準。"
   },
   {
     category: "blood",
-    question: "?質?敺??獐颲佗?",
-    answer: "?質?敺??? 3 ??5 ??嚗憭拚??憯????押???怎??獄?冽?憭折??箄?嚗????Ｚ???
+    question: "抽血後瘀青怎麼辦？",
+    answer: "抽血後請加壓 3 至 5 分鐘，當天避免揉壓與提重物。若持續腫痛、麻木或大量出血，請儘速回院處理。"
   },
   {
     category: "specimen",
-    question: "撠踵雯瑼ａ?閬獐??",
-    answer: "銝?砍倏瘨脫炎?亙遣霅唳銝剜挾撠選?雿輻?Ｘ??摰孵嚗?情?畾倏瘨脫炎?亙?賣?銝??園??挾??摮撘?
+    question: "尿液檢體要怎麼留？",
+    answer: "一般尿液檢查建議採中段尿，使用院方提供容器，避免污染。特殊尿液檢查可能有不同收集時段與保存方式。"
   },
   {
     category: "report",
-    question: "瑼ａ??勗?憭??靘?",
-    answer: "撣貉?瑼ａ?憭?舀?嗆???亙????寞?瑼ａ??靘??擗???瘚?????
+    question: "檢驗報告多久會出來？",
+    answer: "常規檢驗多數可於當日或隔日完成，特殊檢驗需依外送、培養或分析流程而定。"
   }
 ];
 
 let tests = [];
 
-const embeddedCsv = {"value":"code,name,english,aliases,specimen,fasting,turnaround,meaning,note\nGLU,銵蝟?Glucose,\"憌臬?銵蝟?蝛箄銵蝟??∟?蝟?,銵瘨?\"撱箄降蝛箄 8 撠?嚗??怠??箸?\",?嗆,閰摯銵瘨脖葉?∟?蝟?摨佗?撣貊?潛?撠輻?蝭拇炎??蝟?嗉蕭頩扎??質???靘?Ⅱ隤?阡?蝛箄??CBC,?刻?????Complete Blood Count,\"銵???質???蝝???銵撠,銵蝝?\",銵瘨??虜銝?蝛箄,?嗆,閰摯?質???銵??蝝???撠蝑?瘨脩敦?????交??寞??怠?嚗?靘霅瑚犖?∟牧??AST,暻抵??貉??粹,AST / GOT,\"GOT,????????,銵瘨??虜銝?蝛箄,?嗆,撣貊?潸?隡啗??????嗡?蝯?蝝啗????賊????瑼ａ??詨潮??剝? ALT?蝝??摨?瘜霈??ALT,暻拐??桅頧??ALT / GPT,\"GPT,????????,銵瘨??虜銝?蝛箄,?嗆,撣貊?潸?隡啗?蝝啗??嚗??梢撣急???脰??嗡?瑼Ｘ閫????AI 撠?????犖?勗?閮箸??TG,銝?硃??Triglyceride,\"銵???,擃???,銵瘨?撣賊?蝛箄 8 ??12 撠?,?嗆,閰摯銵瘨脖葉銝?硃??摨佗??誨雓?銵蝞⊿◢?芾?隡啁???質????踹?憌脤???瘝寡?憌脤?嚗祕??摰??Ｗ瑼ａ?瘚???CRE,???Creatinine,\"????Cr,??\",銵瘨??虜銝?蝛箄,?嗆,撣貊?潸?隡啗??嚗??剝?撟湧翩?批??eGFR 蝑?閮霈???交??Ｘ扯???隢??怠葦摰?餈質馱??","PSPath":"C:\\Users\\t1600\\Documents\\智能檢驗系統\\data\\tests.csv","PSParentPath":"C:\\Users\\t1600\\Documents\\智能檢驗系統\\data","PSChildName":"tests.csv","PSDrive":{"CurrentLocation":"Users\\t1600\\Documents\\智能檢驗系統","Name":"C","Provider":{"ImplementingType":"Microsoft.PowerShell.Commands.FileSystemProvider","HelpFile":"System.Management.Automation.dll-Help.xml","Name":"FileSystem","PSSnapIn":"Microsoft.PowerShell.Core","ModuleName":"Microsoft.PowerShell.Core","Module":null,"Description":"","Capabilities":52,"Home":"C:\\Users\\t1600","Drives":"C"},"Root":"C:\\","Description":"OS","MaximumSize":null,"Credential":{"UserName":null,"Password":null},"DisplayRoot":null},"PSProvider":{"ImplementingType":{"Module":"System.Management.Automation.dll","Assembly":"System.Management.Automation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35","TypeHandle":"System.RuntimeTypeHandle","DeclaringMethod":null,"BaseType":"System.Management.Automation.Provider.NavigationCmdletProvider","UnderlyingSystemType":"Microsoft.PowerShell.Commands.FileSystemProvider","FullName":"Microsoft.PowerShell.Commands.FileSystemProvider","AssemblyQualifiedName":"Microsoft.PowerShell.Commands.FileSystemProvider, System.Management.Automation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35","Namespace":"Microsoft.PowerShell.Commands","GUID":"b4755d19-b6a7-38dc-ae06-4167f801062f","IsEnum":false,"GenericParameterAttributes":null,"IsSecurityCritical":true,"IsSecuritySafeCritical":false,"IsSecurityTransparent":false,"IsGenericTypeDefinition":false,"IsGenericParameter":false,"GenericParameterPosition":null,"IsGenericType":false,"IsConstructedGenericType":false,"ContainsGenericParameters":false,"StructLayoutAttribute":"System.Runtime.InteropServices.StructLayoutAttribute","Name":"FileSystemProvider","MemberType":32,"DeclaringType":null,"ReflectedType":null,"MetadataToken":33556356,"GenericTypeParameters":"","DeclaredConstructors":"Void .ctor() Void .cctor()","DeclaredEvents":"","DeclaredFields":"System.Collections.ObjectModel.Collection`1[System.Management.Automation.WildcardPattern] excludeMatcher System.Management.Automation.PSTraceSource tracer Int32 FILETRANSFERSIZE System.String ProviderName","DeclaredMembers":"System.String NormalizePath(System.String) System.IO.FileSystemInfo GetFileSystemInfo(System.String, Boolean ByRef) Boolean IsFilterSet() System.Object GetChildNamesDynamicParameters(System.String) System.Object GetChildItemsDynamicParameters(System.String, Boolean) System.Object CopyItemDynamicParameters(System.String, System.String, Boolean) Boolean IsNetworkMappedDrive(System.Management.Automation.PSDriveInfo) Boolean IsSupportedDriveForPersistence(System.Management.Automation.PSDriveInfo) System.String GetRootPathForNetworkDriveOrDosDevice(System.IO.DriveInfo) System.Collections.ObjectModel.Collection`1[System.Management.Automation.PSDriveInfo] InitializeDefaultDrives() System.Object GetItemDynamicParameters(System.String) Void InvokeDefaultAction(System.String) Void GetChildItems(System.String, Boolean, UInt32) Void GetChildNames(System.String, System.Management.Automation.ReturnContainers) Boolean CheckItemExists(System.String, Boolean ByRef) System.Object RemoveItemDynamicParameters(System.String, Boolean) Void RemoveFileInfoItem(System.IO.FileInfo, Boolean) Boolean ItemExists(System.String) System.Object ItemExistsDynamicParameters(System.String) Boolean HasChildItems(System.String) Void CopyItemLocalOrToSession(System.String, System.String, Boolean, Boolean, System.Management.Automation.PowerShell) Void InitilizeFunctionPSCopyFileFromRemoteSession(System.Management.Automation.PowerShell) Boolean ValidRemoteSessionForScripting(System.Management.Automation.Runspaces.Runspace) Void InitilizeFunctionsPSCopyFileToRemoteSession(System.Management.Automation.PowerShell) Boolean PathIsReservedDeviceName(System.String, System.String) Boolean IsAbsolutePath(System.String) System.String GetCommonBase(System.String, System.String) System.String CreateNormalizedRelativePathFromStack(System.Collections.Generic.Stack`1[System.String]) Boolean IsItemContainer(System.String) Void MoveDirectoryInfoUnchecked(System.IO.DirectoryInfo, System.String, Boolean) Boolean IsSameVolume(System.String, System.String) System.Object GetPropertyDynamicParameters(System.String, System.Collections.ObjectModel.Collection`1[System.String]) System.Object SetPropertyDynamicParameters(System.String, System.Management.Automation.PSObject) System.Object ClearPropertyDynamicParameters(System.String, System.Collections.ObjectModel.Collection`1[System.String]) System.Object GetContentWriterDynamicParameters(System.String) System.Object ClearContentDynamicParameters(System.String) Int32 SafeGetFileAttributes(System.String) System.Security.AccessControl.ObjectSecurity NewSecurityDescriptorFromPath(System.String, System.Security.AccessControl.AccessControlSections) System.Security.AccessControl.ObjectSecurity NewSecurityDescriptorOfType(System.String, System.Security.AccessControl.AccessControlSections) System.Security.AccessControl.ObjectSecurity NewSecurityDescriptor(ItemType) System.Management.Automation.ErrorRecord CreateErrorRecord(System.String, System.String) System.String GetHelpMaml(System.String, System.String) System.Management.Automation.ProviderInfo Start(System.Management.Automation.ProviderInfo) System.Management.Automation.PSDriveInfo NewDrive(System.Management.Automation.PSDriveInfo) Void MapNetworkDrive(System.Management.Automation.PSDriveInfo) System.Management.Automation.PSDriveInfo RemoveDrive(System.Management.Automation.PSDriveInfo) System.String GetUNCForNetworkDrive(System.String) System.String GetSubstitutedPathForNetworkDosDevice(System.String) Boolean IsValidPath(System.String) Void GetItem(System.String) System.IO.FileSystemInfo GetFileSystemItem(System.String, Boolean ByRef, Boolean) Boolean ConvertPath(System.String, System.String, System.String ByRef, System.String ByRef) Void GetPathItems(System.String, Boolean, UInt32, Boolean, System.Management.Automation.ReturnContainers) Void Dir(System.IO.DirectoryInfo, Boolean, UInt32, Boolean, System.Management.Automation.ReturnContainers, InodeTracker) System.Management.Automation.FlagsExpression`1[System.IO.FileAttributes] FormatAttributeSwitchParamters() System.String Mode(System.Management.Automation.PSObject) Void RenameItem(System.String, System.String) Void NewItem(System.String, System.String, System.Object) ItemType GetItemType(System.String) Void CreateDirectory(System.String, Boolean) Boolean CreateIntermediateDirectories(System.String) Void RemoveItem(System.String, Boolean) Void RemoveDirectoryInfoItem(System.IO.DirectoryInfo, Boolean, Boolean, Boolean) Void RemoveFileSystemItem(System.IO.FileSystemInfo, Boolean) Boolean ItemExists(System.String, System.Management.Automation.ErrorRecord ByRef) Boolean DirectoryInfoHasChildItems(System.IO.DirectoryInfo) Void CopyItem(System.String, System.String, Boolean) Void CopyItemFromRemoteSession(System.String, System.String, Boolean, Boolean, System.Management.Automation.Runspaces.PSSession) Void CopyDirectoryInfoItem(System.IO.DirectoryInfo, System.String, Boolean, Boolean, System.Management.Automation.PowerShell) Void CopyFileInfoItem(System.IO.FileInfo, System.String, Boolean, System.Management.Automation.PowerShell) Void CopyDirectoryFromRemoteSession(System.String, System.String, System.String, Boolean, Boolean, System.Management.Automation.PowerShell) System.Collections.ArrayList GetRemoteSourceAlternateStreams(System.Management.Automation.PowerShell, System.String) Void RemoveFunctionsPSCopyFileFromRemoteSession(System.Management.Automation.PowerShell) System.Collections.Hashtable GetRemoteFileMetadata(System.String, System.Management.Automation.PowerShell) Void SetFileMetadata(System.String, System.IO.FileInfo, System.Management.Automation.PowerShell) Void CopyFileFromRemoteSession(System.String, System.String, System.String, Boolean, System.Management.Automation.PowerShell, Int64) Boolean PerformCopyFileFromRemoteSession(System.String, System.IO.FileInfo, System.String, Boolean, System.Management.Automation.PowerShell, Int64, Boolean, System.String) Void RemoveFunctionPSCopyFileToRemoteSession(System.Management.Automation.PowerShell) Boolean RemoteTargetSupportsAlternateStreams(System.Management.Automation.PowerShell, System.String) System.String MakeRemotePath(System.Management.Automation.PowerShell, System.String, System.String) Boolean RemoteDirectoryExist(System.Management.Automation.PowerShell, System.String) Boolean CopyFileStreamToRemoteSession(System.IO.FileInfo, System.String, System.Management.Automation.PowerShell, Boolean, System.String) System.Collections.Hashtable GetFileMetadata(System.IO.FileInfo) Void SetRemoteFileMetadata(System.IO.FileInfo, System.String, System.Management.Automation.PowerShell) Boolean PerformCopyFileToRemoteSession(System.IO.FileInfo, System.String, System.Management.Automation.PowerShell) Boolean RemoteDestinationPathIsFile(System.String, System.Management.Automation.PowerShell) System.String CreateDirectoryOnRemoteSession(System.String, Boolean, System.Management.Automation.PowerShell) System.String GetParentPath(System.String, System.String) Boolean IsUNCPath(System.String) Boolean IsUNCRoot(System.String) Boolean IsPathRoot(System.String) System.String NormalizeRelativePath(System.String, System.String) System.String NormalizeRelativePathHelper(System.String, System.String) System.String RemoveRelativeTokens(System.String) System.Collections.Generic.Stack`1[System.String] TokenizePathToStack(System.String, System.String) System.Collections.Generic.Stack`1[System.String] NormalizeThePath(System.String, System.Collections.Generic.Stack`1[System.String]) System.String GetChildName(System.String) System.String EnsureDriveIsRooted(System.String) Void MoveItem(System.String, System.String) Void MoveFileInfoItem(System.IO.FileInfo, System.String, Boolean, Boolean) Void MoveDirectoryInfoItem(System.IO.DirectoryInfo, System.String, Boolean) Void CopyAndDelete(System.IO.DirectoryInfo, System.String, Boolean) Void GetProperty(System.String, System.Collections.ObjectModel.Collection`1[System.String]) Void SetProperty(System.String, System.Management.Automation.PSObject) Void ClearProperty(System.String, System.Collections.ObjectModel.Collection`1[System.String]) System.Management.Automation.Provider.IContentReader GetContentReader(System.String) System.Object GetContentReaderDynamicParameters(System.String) System.Management.Automation.Provider.IContentWriter GetContentWriter(System.String) Void ClearContent(System.String) Void ValidateParameters(Boolean) Void GetSecurityDescriptor(System.String, System.Security.AccessControl.AccessControlSections) Void SetSecurityDescriptor(System.String, System.Security.AccessControl.ObjectSecurity) Void SetSecurityDescriptor(System.String, System.Security.AccessControl.ObjectSecurity, System.Security.AccessControl.AccessControlSections) Void \u003cRemoveDirectoryInfoItem\u003eg__WriteErrorHelper|43_0(System.Exception, \u003c\u003ec__DisplayClass43_0 ByRef) Void .ctor() Void .cctor() System.Collections.ObjectModel.Collection`1[System.Management.Automation.WildcardPattern] excludeMatcher System.Management.Automation.PSTraceSource tracer Int32 FILETRANSFERSIZE System.String ProviderName Microsoft.PowerShell.Commands.FileSystemProvider+ItemType Microsoft.PowerShell.Commands.FileSystemProvider+NativeMethods Microsoft.PowerShell.Commands.FileSystemProvider+NetResource Microsoft.PowerShell.Commands.FileSystemProvider+InodeTracker Microsoft.PowerShell.Commands.FileSystemProvider+\u003c\u003ec__DisplayClass43_0","DeclaredMethods":"System.String Mode(System.Management.Automation.PSObject) System.String NormalizePath(System.String) System.IO.FileSystemInfo GetFileSystemInfo(System.String, Boolean ByRef) Boolean IsFilterSet() System.Object GetChildNamesDynamicParameters(System.String) System.Object GetChildItemsDynamicParameters(System.String, Boolean) System.Object CopyItemDynamicParameters(System.String, System.String, Boolean) Boolean IsNetworkMappedDrive(System.Management.Automation.PSDriveInfo) Boolean IsSupportedDriveForPersistence(System.Management.Automation.PSDriveInfo) System.String GetRootPathForNetworkDriveOrDosDevice(System.IO.DriveInfo) System.Collections.ObjectModel.Collection`1[System.Management.Automation.PSDriveInfo] InitializeDefaultDrives() System.Object GetItemDynamicParameters(System.String) Void InvokeDefaultAction(System.String) Void GetChildItems(System.String, Boolean, UInt32) Void GetChildNames(System.String, System.Management.Automation.ReturnContainers) Boolean CheckItemExists(System.String, Boolean ByRef) System.Object RemoveItemDynamicParameters(System.String, Boolean) Void RemoveFileInfoItem(System.IO.FileInfo, Boolean) Boolean ItemExists(System.String) System.Object ItemExistsDynamicParameters(System.String) Boolean HasChildItems(System.String) Void CopyItemLocalOrToSession(System.String, System.String, Boolean, Boolean, System.Management.Automation.PowerShell) Void InitilizeFunctionPSCopyFileFromRemoteSession(System.Management.Automation.PowerShell) Boolean ValidRemoteSessionForScripting(System.Management.Automation.Runspaces.Runspace) Void InitilizeFunctionsPSCopyFileToRemoteSession(System.Management.Automation.PowerShell) Boolean PathIsReservedDeviceName(System.String, System.String) Boolean IsAbsolutePath(System.String) System.String GetCommonBase(System.String, System.String) System.String CreateNormalizedRelativePathFromStack(System.Collections.Generic.Stack`1[System.String]) Boolean IsItemContainer(System.String) Void MoveDirectoryInfoUnchecked(System.IO.DirectoryInfo, System.String, Boolean) Boolean IsSameVolume(System.String, System.String) System.Object GetPropertyDynamicParameters(System.String, System.Collections.ObjectModel.Collection`1[System.String]) System.Object SetPropertyDynamicParameters(System.String, System.Management.Automation.PSObject) System.Object ClearPropertyDynamicParameters(System.String, System.Collections.ObjectModel.Collection`1[System.String]) System.Object GetContentWriterDynamicParameters(System.String) System.Object ClearContentDynamicParameters(System.String) Int32 SafeGetFileAttributes(System.String) System.Security.AccessControl.ObjectSecurity NewSecurityDescriptorFromPath(System.String, System.Security.AccessControl.AccessControlSections) System.Security.AccessControl.ObjectSecurity NewSecurityDescriptorOfType(System.String, System.Security.AccessControl.AccessControlSections) System.Security.AccessControl.ObjectSecurity NewSecurityDescriptor(ItemType) System.Management.Automation.ErrorRecord CreateErrorRecord(System.String, System.String) System.String GetHelpMaml(System.String, System.String) System.Management.Automation.ProviderInfo Start(System.Management.Automation.ProviderInfo) System.Management.Automation.PSDriveInfo NewDrive(System.Management.Automation.PSDriveInfo) Void MapNetworkDrive(System.Management.Automation.PSDriveInfo) System.Management.Automation.PSDriveInfo RemoveDrive(System.Management.Automation.PSDriveInfo) System.String GetUNCForNetworkDrive(System.String) System.String GetSubstitutedPathForNetworkDosDevice(System.String) Boolean IsValidPath(System.String) Void GetItem(System.String) System.IO.FileSystemInfo GetFileSystemItem(System.String, Boolean ByRef, Boolean) Boolean ConvertPath(System.String, System.String, System.String ByRef, System.String ByRef) Void GetPathItems(System.String, Boolean, UInt32, Boolean, System.Management.Automation.ReturnContainers) Void Dir(System.IO.DirectoryInfo, Boolean, UInt32, Boolean, System.Management.Automation.ReturnContainers, InodeTracker) System.Management.Automation.FlagsExpression`1[System.IO.FileAttributes] FormatAttributeSwitchParamters() Void RenameItem(System.String, System.String) Void NewItem(System.String, System.String, System.Object) ItemType GetItemType(System.String) Void CreateDirectory(System.String, Boolean) Boolean CreateIntermediateDirectories(System.String) Void RemoveItem(System.String, Boolean) Void RemoveDirectoryInfoItem(System.IO.DirectoryInfo, Boolean, Boolean, Boolean) Void RemoveFileSystemItem(System.IO.FileSystemInfo, Boolean) Boolean ItemExists(System.String, System.Management.Automation.ErrorRecord ByRef) Boolean DirectoryInfoHasChildItems(System.IO.DirectoryInfo) Void CopyItem(System.String, System.String, Boolean) Void CopyItemFromRemoteSession(System.String, System.String, Boolean, Boolean, System.Management.Automation.Runspaces.PSSession) Void CopyDirectoryInfoItem(System.IO.DirectoryInfo, System.String, Boolean, Boolean, System.Management.Automation.PowerShell) Void CopyFileInfoItem(System.IO.FileInfo, System.String, Boolean, System.Management.Automation.PowerShell) Void CopyDirectoryFromRemoteSession(System.String, System.String, System.String, Boolean, Boolean, System.Management.Automation.PowerShell) System.Collections.ArrayList GetRemoteSourceAlternateStreams(System.Management.Automation.PowerShell, System.String) Void RemoveFunctionsPSCopyFileFromRemoteSession(System.Management.Automation.PowerShell) System.Collections.Hashtable GetRemoteFileMetadata(System.String, System.Management.Automation.PowerShell) Void SetFileMetadata(System.String, System.IO.FileInfo, System.Management.Automation.PowerShell) Void CopyFileFromRemoteSession(System.String, System.String, System.String, Boolean, System.Management.Automation.PowerShell, Int64) Boolean PerformCopyFileFromRemoteSession(System.String, System.IO.FileInfo, System.String, Boolean, System.Management.Automation.PowerShell, Int64, Boolean, System.String) Void RemoveFunctionPSCopyFileToRemoteSession(System.Management.Automation.PowerShell) Boolean RemoteTargetSupportsAlternateStreams(System.Management.Automation.PowerShell, System.String) System.String MakeRemotePath(System.Management.Automation.PowerShell, System.String, System.String) Boolean RemoteDirectoryExist(System.Management.Automation.PowerShell, System.String) Boolean CopyFileStreamToRemoteSession(System.IO.FileInfo, System.String, System.Management.Automation.PowerShell, Boolean, System.String) System.Collections.Hashtable GetFileMetadata(System.IO.FileInfo) Void SetRemoteFileMetadata(System.IO.FileInfo, System.String, System.Management.Automation.PowerShell) Boolean PerformCopyFileToRemoteSession(System.IO.FileInfo, System.String, System.Management.Automation.PowerShell) Boolean RemoteDestinationPathIsFile(System.String, System.Management.Automation.PowerShell) System.String CreateDirectoryOnRemoteSession(System.String, Boolean, System.Management.Automation.PowerShell) System.String GetParentPath(System.String, System.String) Boolean IsUNCPath(System.String) Boolean IsUNCRoot(System.String) Boolean IsPathRoot(System.String) System.String NormalizeRelativePath(System.String, System.String) System.String NormalizeRelativePathHelper(System.String, System.String) System.String RemoveRelativeTokens(System.String) System.Collections.Generic.Stack`1[System.String] TokenizePathToStack(System.String, System.String) System.Collections.Generic.Stack`1[System.String] NormalizeThePath(System.String, System.Collections.Generic.Stack`1[System.String]) System.String GetChildName(System.String) System.String EnsureDriveIsRooted(System.String) Void MoveItem(System.String, System.String) Void MoveFileInfoItem(System.IO.FileInfo, System.String, Boolean, Boolean) Void MoveDirectoryInfoItem(System.IO.DirectoryInfo, System.String, Boolean) Void CopyAndDelete(System.IO.DirectoryInfo, System.String, Boolean) Void GetProperty(System.String, System.Collections.ObjectModel.Collection`1[System.String]) Void SetProperty(System.String, System.Management.Automation.PSObject) Void ClearProperty(System.String, System.Collections.ObjectModel.Collection`1[System.String]) System.Management.Automation.Provider.IContentReader GetContentReader(System.String) System.Object GetContentReaderDynamicParameters(System.String) System.Management.Automation.Provider.IContentWriter GetContentWriter(System.String) Void ClearContent(System.String) Void ValidateParameters(Boolean) Void GetSecurityDescriptor(System.String, System.Security.AccessControl.AccessControlSections) Void SetSecurityDescriptor(System.String, System.Security.AccessControl.ObjectSecurity) Void SetSecurityDescriptor(System.String, System.Security.AccessControl.ObjectSecurity, System.Security.AccessControl.AccessControlSections) Void \u003cRemoveDirectoryInfoItem\u003eg__WriteErrorHelper|43_0(System.Exception, \u003c\u003ec__DisplayClass43_0 ByRef)","DeclaredNestedTypes":"Microsoft.PowerShell.Commands.FileSystemProvider+ItemType Microsoft.PowerShell.Commands.FileSystemProvider+NativeMethods Microsoft.PowerShell.Commands.FileSystemProvider+NetResource Microsoft.PowerShell.Commands.FileSystemProvider+InodeTracker Microsoft.PowerShell.Commands.FileSystemProvider+\u003c\u003ec__DisplayClass43_0","DeclaredProperties":"","ImplementedInterfaces":"System.Management.Automation.IResourceSupplier System.Management.Automation.Provider.IContentCmdletProvider System.Management.Automation.Provider.IPropertyCmdletProvider System.Management.Automation.Provider.ISecurityDescriptorCmdletProvider System.Management.Automation.Provider.ICmdletProviderSupportsHelp","TypeInitializer":"Void .cctor()","IsNested":false,"Attributes":1048833,"IsVisible":true,"IsNotPublic":false,"IsPublic":true,"IsNestedPublic":false,"IsNestedPrivate":false,"IsNestedFamily":false,"IsNestedAssembly":false,"IsNestedFamANDAssem":false,"IsNestedFamORAssem":false,"IsAutoLayout":true,"IsLayoutSequential":false,"IsExplicitLayout":false,"IsClass":true,"IsInterface":false,"IsValueType":false,"IsAbstract":false,"IsSealed":true,"IsSpecialName":false,"IsImport":false,"IsSerializable":false,"IsAnsiClass":true,"IsUnicodeClass":false,"IsAutoClass":false,"IsArray":false,"IsByRef":false,"IsPointer":false,"IsPrimitive":false,"IsCOMObject":false,"HasElementType":false,"IsContextful":false,"IsMarshalByRef":false,"GenericTypeArguments":"","CustomAttributes":"[System.Management.Automation.OutputTypeAttribute(new Type[2] { typeof(System.String), typeof(System.IO.FileInfo) }, ProviderCmdlet = \"New-Item\")] [System.Management.Automation.OutputTypeAttribute(typeof(System.Security.AccessControl.FileSecurity), ProviderCmdlet = \"Set-Acl\")] [System.Management.Automation.OutputTypeAttribute(new Type[2] { typeof(System.String), typeof(System.Management.Automation.PathInfo) }, ProviderCmdlet = \"Resolve-Path\")] [System.Management.Automation.OutputTypeAttribute(typeof(System.Management.Automation.PathInfo), ProviderCmdlet = \"Push-Location\")] [System.Management.Automation.OutputTypeAttribute(new Type[2] { typeof(System.Byte), typeof(System.String) }, ProviderCmdlet = \"Get-Content\")] [System.Management.Automation.OutputTypeAttribute(typeof(System.IO.FileInfo), ProviderCmdlet = \"Get-Item\")] [System.Management.Automation.OutputTypeAttribute(new Type[2] { typeof(System.IO.FileInfo), typeof(System.IO.DirectoryInfo) }, ProviderCmdlet = \"Get-ChildItem\")] [System.Management.Automation.OutputTypeAttribute(new Type[2] { typeof(System.Security.AccessControl.FileSecurity), typeof(System.Security.AccessControl.DirectorySecurity) }, ProviderCmdlet = \"Get-Acl\")] [System.Management.Automation.OutputTypeAttribute(new Type[4] { typeof(System.Boolean), typeof(System.String), typeof(System.IO.FileInfo), typeof(System.IO.DirectoryInfo) }, ProviderCmdlet = \"Get-Item\")] [System.Management.Automation.OutputTypeAttribute(new Type[5] { typeof(System.Boolean), typeof(System.String), typeof(System.DateTime), typeof(System.IO.FileInfo), typeof(System.IO.DirectoryInfo) }, ProviderCmdlet = \"Get-ItemProperty\")] [System.Management.Automation.Provider.CmdletProviderAttribute(\"FileSystem\", (System.Management.Automation.Provider.ProviderCapabilities)52)]"},"HelpFile":"System.Management.Automation.dll-Help.xml","Name":"FileSystem","PSSnapIn":{"Name":"Microsoft.PowerShell.Core","IsDefault":true,"ApplicationBase":"C:\\Windows\\System32\\WindowsPowerShell\\v1.0","AssemblyName":"System.Management.Automation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, ProcessorArchitecture=MSIL","ModuleName":"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\System.Management.Automation.dll","PSVersion":"5.1.26100.8655","Version":"3.0.0.0","Types":"types.ps1xml typesv3.ps1xml","Formats":"Certificate.format.ps1xml DotNetTypes.format.ps1xml FileSystem.format.ps1xml Help.format.ps1xml HelpV3.format.ps1xml PowerShellCore.format.ps1xml PowerShellTrace.format.ps1xml Registry.format.ps1xml","Description":"This Windows PowerShell snap-in contains cmdlets used to manage components of Windows PowerShell.","Vendor":"Microsoft Corporation","LogPipelineExecutionDetails":false},"ModuleName":"Microsoft.PowerShell.Core","Module":null,"Description":"","Capabilities":52,"Home":"C:\\Users\\t1600","Drives":["C"]},"ReadCount":1};
+const embeddedCsv = {"value":"code,name,english,aliases,specimen,fasting,turnaround,meaning,note\nGLU,血糖,Glucose,\"飯前血糖,空腹血糖,葡萄糖\",血液,\"建議空腹 8 小時，依醫囑為準\",當日,評估血液中葡萄糖濃度，常用於糖尿病篩檢與血糖控制追蹤。,抽血前請依醫囑確認是否需空腹。\nCBC,全血球計數,Complete Blood Count,\"血球,白血球,紅血球,血小板,血紅素\",血液,通常不需空腹,當日,評估白血球、紅血球、血紅素與血小板等血液細胞狀態。,若有特殊醫囑，請依醫護人員說明。\nAST,麩草酸轉胺酶,AST / GOT,\"GOT,肝功能,肝指數\",血液,通常不需空腹,當日,常用於評估肝臟、肌肉或其他組織細胞受損相關狀態。,檢驗數值需搭配 ALT、膽紅素及臨床狀況判讀。\nALT,麩丙酮酸轉胺酶,ALT / GPT,\"GPT,肝功能,肝指數\",血液,通常不需空腹,當日,常用於評估肝細胞損傷，需由醫師搭配病史與其他檢查解讀。,AI 小助理不提供個人報告診斷。\nTG,三酸甘油脂,Triglyceride,\"血脂,脂肪,高血脂\",血液,常需空腹 8 至 12 小時,當日,評估血液中三酸甘油脂濃度，與代謝、心血管風險評估相關。,抽血前請避免飲酒與高油脂飲食，實際規定依院內檢驗流程。\nCRE,肌酸酐,Creatinine,\"腎功能,Cr,腎臟\",血液,通常不需空腹,當日,常用於評估腎功能，需搭配年齡、性別與 eGFR 等資訊判讀。,若有慢性腎臟病請依醫師安排追蹤。\n","PSPath":"C:\\Users\\t1600\\Documents\\智能檢驗系統\\data\\tests.csv","PSParentPath":"C:\\Users\\t1600\\Documents\\智能檢驗系統\\data","PSChildName":"tests.csv","PSDrive":{"CurrentLocation":"Users\\t1600\\Documents\\智能檢驗系統","Name":"C","Provider":{"ImplementingType":"Microsoft.PowerShell.Commands.FileSystemProvider","HelpFile":"System.Management.Automation.dll-Help.xml","Name":"FileSystem","PSSnapIn":"Microsoft.PowerShell.Core","ModuleName":"Microsoft.PowerShell.Core","Module":null,"Description":"","Capabilities":52,"Home":"C:\\Users\\t1600","Drives":"C"},"Root":"C:\\","Description":"OS","MaximumSize":null,"Credential":{"UserName":null,"Password":null},"DisplayRoot":null},"PSProvider":{"ImplementingType":{"Module":"System.Management.Automation.dll","Assembly":"System.Management.Automation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35","TypeHandle":"System.RuntimeTypeHandle","DeclaringMethod":null,"BaseType":"System.Management.Automation.Provider.NavigationCmdletProvider","UnderlyingSystemType":"Microsoft.PowerShell.Commands.FileSystemProvider","FullName":"Microsoft.PowerShell.Commands.FileSystemProvider","AssemblyQualifiedName":"Microsoft.PowerShell.Commands.FileSystemProvider, System.Management.Automation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35","Namespace":"Microsoft.PowerShell.Commands","GUID":"b4755d19-b6a7-38dc-ae06-4167f801062f","IsEnum":false,"GenericParameterAttributes":null,"IsSecurityCritical":true,"IsSecuritySafeCritical":false,"IsSecurityTransparent":false,"IsGenericTypeDefinition":false,"IsGenericParameter":false,"GenericParameterPosition":null,"IsGenericType":false,"IsConstructedGenericType":false,"ContainsGenericParameters":false,"StructLayoutAttribute":"System.Runtime.InteropServices.StructLayoutAttribute","Name":"FileSystemProvider","MemberType":32,"DeclaringType":null,"ReflectedType":null,"MetadataToken":33556356,"GenericTypeParameters":"","DeclaredConstructors":"Void .ctor() Void .cctor()","DeclaredEvents":"","DeclaredFields":"System.Collections.ObjectModel.Collection`1[System.Management.Automation.WildcardPattern] excludeMatcher System.Management.Automation.PSTraceSource tracer Int32 FILETRANSFERSIZE System.String ProviderName","DeclaredMembers":"System.String NormalizePath(System.String) System.IO.FileSystemInfo GetFileSystemInfo(System.String, Boolean ByRef) Boolean IsFilterSet() System.Object GetChildNamesDynamicParameters(System.String) System.Object GetChildItemsDynamicParameters(System.String, Boolean) System.Object CopyItemDynamicParameters(System.String, System.String, Boolean) Boolean IsNetworkMappedDrive(System.Management.Automation.PSDriveInfo) Boolean IsSupportedDriveForPersistence(System.Management.Automation.PSDriveInfo) System.String GetRootPathForNetworkDriveOrDosDevice(System.IO.DriveInfo) System.Collections.ObjectModel.Collection`1[System.Management.Automation.PSDriveInfo] InitializeDefaultDrives() System.Object GetItemDynamicParameters(System.String) Void InvokeDefaultAction(System.String) Void GetChildItems(System.String, Boolean, UInt32) Void GetChildNames(System.String, System.Management.Automation.ReturnContainers) Boolean CheckItemExists(System.String, Boolean ByRef) System.Object RemoveItemDynamicParameters(System.String, Boolean) Void RemoveFileInfoItem(System.IO.FileInfo, Boolean) Boolean ItemExists(System.String) System.Object ItemExistsDynamicParameters(System.String) Boolean HasChildItems(System.String) Void CopyItemLocalOrToSession(System.String, System.String, Boolean, Boolean, System.Management.Automation.PowerShell) Void InitilizeFunctionPSCopyFileFromRemoteSession(System.Management.Automation.PowerShell) Boolean ValidRemoteSessionForScripting(System.Management.Automation.Runspaces.Runspace) Void InitilizeFunctionsPSCopyFileToRemoteSession(System.Management.Automation.PowerShell) Boolean PathIsReservedDeviceName(System.String, System.String) Boolean IsAbsolutePath(System.String) System.String GetCommonBase(System.String, System.String) System.String CreateNormalizedRelativePathFromStack(System.Collections.Generic.Stack`1[System.String]) Boolean IsItemContainer(System.String) Void MoveDirectoryInfoUnchecked(System.IO.DirectoryInfo, System.String, Boolean) Boolean IsSameVolume(System.String, System.String) System.Object GetPropertyDynamicParameters(System.String, System.Collections.ObjectModel.Collection`1[System.String]) System.Object SetPropertyDynamicParameters(System.String, System.Management.Automation.PSObject) System.Object ClearPropertyDynamicParameters(System.String, System.Collections.ObjectModel.Collection`1[System.String]) System.Object GetContentWriterDynamicParameters(System.String) System.Object ClearContentDynamicParameters(System.String) Int32 SafeGetFileAttributes(System.String) System.Security.AccessControl.ObjectSecurity NewSecurityDescriptorFromPath(System.String, System.Security.AccessControl.AccessControlSections) System.Security.AccessControl.ObjectSecurity NewSecurityDescriptorOfType(System.String, System.Security.AccessControl.AccessControlSections) System.Security.AccessControl.ObjectSecurity NewSecurityDescriptor(ItemType) System.Management.Automation.ErrorRecord CreateErrorRecord(System.String, System.String) System.String GetHelpMaml(System.String, System.String) System.Management.Automation.ProviderInfo Start(System.Management.Automation.ProviderInfo) System.Management.Automation.PSDriveInfo NewDrive(System.Management.Automation.PSDriveInfo) Void MapNetworkDrive(System.Management.Automation.PSDriveInfo) System.Management.Automation.PSDriveInfo RemoveDrive(System.Management.Automation.PSDriveInfo) System.String GetUNCForNetworkDrive(System.String) System.String GetSubstitutedPathForNetworkDosDevice(System.String) Boolean IsValidPath(System.String) Void GetItem(System.String) System.IO.FileSystemInfo GetFileSystemItem(System.String, Boolean ByRef, Boolean) Boolean ConvertPath(System.String, System.String, System.String ByRef, System.String ByRef) Void GetPathItems(System.String, Boolean, UInt32, Boolean, System.Management.Automation.ReturnContainers) Void Dir(System.IO.DirectoryInfo, Boolean, UInt32, Boolean, System.Management.Automation.ReturnContainers, InodeTracker) System.Management.Automation.FlagsExpression`1[System.IO.FileAttributes] FormatAttributeSwitchParamters() System.String Mode(System.Management.Automation.PSObject) Void RenameItem(System.String, System.String) Void NewItem(System.String, System.String, System.Object) ItemType GetItemType(System.String) Void CreateDirectory(System.String, Boolean) Boolean CreateIntermediateDirectories(System.String) Void RemoveItem(System.String, Boolean) Void RemoveDirectoryInfoItem(System.IO.DirectoryInfo, Boolean, Boolean, Boolean) Void RemoveFileSystemItem(System.IO.FileSystemInfo, Boolean) Boolean ItemExists(System.String, System.Management.Automation.ErrorRecord ByRef) Boolean DirectoryInfoHasChildItems(System.IO.DirectoryInfo) Void CopyItem(System.String, System.String, Boolean) Void CopyItemFromRemoteSession(System.String, System.String, Boolean, Boolean, System.Management.Automation.Runspaces.PSSession) Void CopyDirectoryInfoItem(System.IO.DirectoryInfo, System.String, Boolean, Boolean, System.Management.Automation.PowerShell) Void CopyFileInfoItem(System.IO.FileInfo, System.String, Boolean, System.Management.Automation.PowerShell) Void CopyDirectoryFromRemoteSession(System.String, System.String, System.String, Boolean, Boolean, System.Management.Automation.PowerShell) System.Collections.ArrayList GetRemoteSourceAlternateStreams(System.Management.Automation.PowerShell, System.String) Void RemoveFunctionsPSCopyFileFromRemoteSession(System.Management.Automation.PowerShell) System.Collections.Hashtable GetRemoteFileMetadata(System.String, System.Management.Automation.PowerShell) Void SetFileMetadata(System.String, System.IO.FileInfo, System.Management.Automation.PowerShell) Void CopyFileFromRemoteSession(System.String, System.String, System.String, Boolean, System.Management.Automation.PowerShell, Int64) Boolean PerformCopyFileFromRemoteSession(System.String, System.IO.FileInfo, System.String, Boolean, System.Management.Automation.PowerShell, Int64, Boolean, System.String) Void RemoveFunctionPSCopyFileToRemoteSession(System.Management.Automation.PowerShell) Boolean RemoteTargetSupportsAlternateStreams(System.Management.Automation.PowerShell, System.String) System.String MakeRemotePath(System.Management.Automation.PowerShell, System.String, System.String) Boolean RemoteDirectoryExist(System.Management.Automation.PowerShell, System.String) Boolean CopyFileStreamToRemoteSession(System.IO.FileInfo, System.String, System.Management.Automation.PowerShell, Boolean, System.String) System.Collections.Hashtable GetFileMetadata(System.IO.FileInfo) Void SetRemoteFileMetadata(System.IO.FileInfo, System.String, System.Management.Automation.PowerShell) Boolean PerformCopyFileToRemoteSession(System.IO.FileInfo, System.String, System.Management.Automation.PowerShell) Boolean RemoteDestinationPathIsFile(System.String, System.Management.Automation.PowerShell) System.String CreateDirectoryOnRemoteSession(System.String, Boolean, System.Management.Automation.PowerShell) System.String GetParentPath(System.String, System.String) Boolean IsUNCPath(System.String) Boolean IsUNCRoot(System.String) Boolean IsPathRoot(System.String) System.String NormalizeRelativePath(System.String, System.String) System.String NormalizeRelativePathHelper(System.String, System.String) System.String RemoveRelativeTokens(System.String) System.Collections.Generic.Stack`1[System.String] TokenizePathToStack(System.String, System.String) System.Collections.Generic.Stack`1[System.String] NormalizeThePath(System.String, System.Collections.Generic.Stack`1[System.String]) System.String GetChildName(System.String) System.String EnsureDriveIsRooted(System.String) Void MoveItem(System.String, System.String) Void MoveFileInfoItem(System.IO.FileInfo, System.String, Boolean, Boolean) Void MoveDirectoryInfoItem(System.IO.DirectoryInfo, System.String, Boolean) Void CopyAndDelete(System.IO.DirectoryInfo, System.String, Boolean) Void GetProperty(System.String, System.Collections.ObjectModel.Collection`1[System.String]) Void SetProperty(System.String, System.Management.Automation.PSObject) Void ClearProperty(System.String, System.Collections.ObjectModel.Collection`1[System.String]) System.Management.Automation.Provider.IContentReader GetContentReader(System.String) System.Object GetContentReaderDynamicParameters(System.String) System.Management.Automation.Provider.IContentWriter GetContentWriter(System.String) Void ClearContent(System.String) Void ValidateParameters(Boolean) Void GetSecurityDescriptor(System.String, System.Security.AccessControl.AccessControlSections) Void SetSecurityDescriptor(System.String, System.Security.AccessControl.ObjectSecurity) Void SetSecurityDescriptor(System.String, System.Security.AccessControl.ObjectSecurity, System.Security.AccessControl.AccessControlSections) Void \u003cRemoveDirectoryInfoItem\u003eg__WriteErrorHelper|43_0(System.Exception, \u003c\u003ec__DisplayClass43_0 ByRef) Void .ctor() Void .cctor() System.Collections.ObjectModel.Collection`1[System.Management.Automation.WildcardPattern] excludeMatcher System.Management.Automation.PSTraceSource tracer Int32 FILETRANSFERSIZE System.String ProviderName Microsoft.PowerShell.Commands.FileSystemProvider+ItemType Microsoft.PowerShell.Commands.FileSystemProvider+NativeMethods Microsoft.PowerShell.Commands.FileSystemProvider+NetResource Microsoft.PowerShell.Commands.FileSystemProvider+InodeTracker Microsoft.PowerShell.Commands.FileSystemProvider+\u003c\u003ec__DisplayClass43_0","DeclaredMethods":"System.String Mode(System.Management.Automation.PSObject) System.String NormalizePath(System.String) System.IO.FileSystemInfo GetFileSystemInfo(System.String, Boolean ByRef) Boolean IsFilterSet() System.Object GetChildNamesDynamicParameters(System.String) System.Object GetChildItemsDynamicParameters(System.String, Boolean) System.Object CopyItemDynamicParameters(System.String, System.String, Boolean) Boolean IsNetworkMappedDrive(System.Management.Automation.PSDriveInfo) Boolean IsSupportedDriveForPersistence(System.Management.Automation.PSDriveInfo) System.String GetRootPathForNetworkDriveOrDosDevice(System.IO.DriveInfo) System.Collections.ObjectModel.Collection`1[System.Management.Automation.PSDriveInfo] InitializeDefaultDrives() System.Object GetItemDynamicParameters(System.String) Void InvokeDefaultAction(System.String) Void GetChildItems(System.String, Boolean, UInt32) Void GetChildNames(System.String, System.Management.Automation.ReturnContainers) Boolean CheckItemExists(System.String, Boolean ByRef) System.Object RemoveItemDynamicParameters(System.String, Boolean) Void RemoveFileInfoItem(System.IO.FileInfo, Boolean) Boolean ItemExists(System.String) System.Object ItemExistsDynamicParameters(System.String) Boolean HasChildItems(System.String) Void CopyItemLocalOrToSession(System.String, System.String, Boolean, Boolean, System.Management.Automation.PowerShell) Void InitilizeFunctionPSCopyFileFromRemoteSession(System.Management.Automation.PowerShell) Boolean ValidRemoteSessionForScripting(System.Management.Automation.Runspaces.Runspace) Void InitilizeFunctionsPSCopyFileToRemoteSession(System.Management.Automation.PowerShell) Boolean PathIsReservedDeviceName(System.String, System.String) Boolean IsAbsolutePath(System.String) System.String GetCommonBase(System.String, System.String) System.String CreateNormalizedRelativePathFromStack(System.Collections.Generic.Stack`1[System.String]) Boolean IsItemContainer(System.String) Void MoveDirectoryInfoUnchecked(System.IO.DirectoryInfo, System.String, Boolean) Boolean IsSameVolume(System.String, System.String) System.Object GetPropertyDynamicParameters(System.String, System.Collections.ObjectModel.Collection`1[System.String]) System.Object SetPropertyDynamicParameters(System.String, System.Management.Automation.PSObject) System.Object ClearPropertyDynamicParameters(System.String, System.Collections.ObjectModel.Collection`1[System.String]) System.Object GetContentWriterDynamicParameters(System.String) System.Object ClearContentDynamicParameters(System.String) Int32 SafeGetFileAttributes(System.String) System.Security.AccessControl.ObjectSecurity NewSecurityDescriptorFromPath(System.String, System.Security.AccessControl.AccessControlSections) System.Security.AccessControl.ObjectSecurity NewSecurityDescriptorOfType(System.String, System.Security.AccessControl.AccessControlSections) System.Security.AccessControl.ObjectSecurity NewSecurityDescriptor(ItemType) System.Management.Automation.ErrorRecord CreateErrorRecord(System.String, System.String) System.String GetHelpMaml(System.String, System.String) System.Management.Automation.ProviderInfo Start(System.Management.Automation.ProviderInfo) System.Management.Automation.PSDriveInfo NewDrive(System.Management.Automation.PSDriveInfo) Void MapNetworkDrive(System.Management.Automation.PSDriveInfo) System.Management.Automation.PSDriveInfo RemoveDrive(System.Management.Automation.PSDriveInfo) System.String GetUNCForNetworkDrive(System.String) System.String GetSubstitutedPathForNetworkDosDevice(System.String) Boolean IsValidPath(System.String) Void GetItem(System.String) System.IO.FileSystemInfo GetFileSystemItem(System.String, Boolean ByRef, Boolean) Boolean ConvertPath(System.String, System.String, System.String ByRef, System.String ByRef) Void GetPathItems(System.String, Boolean, UInt32, Boolean, System.Management.Automation.ReturnContainers) Void Dir(System.IO.DirectoryInfo, Boolean, UInt32, Boolean, System.Management.Automation.ReturnContainers, InodeTracker) System.Management.Automation.FlagsExpression`1[System.IO.FileAttributes] FormatAttributeSwitchParamters() Void RenameItem(System.String, System.String) Void NewItem(System.String, System.String, System.Object) ItemType GetItemType(System.String) Void CreateDirectory(System.String, Boolean) Boolean CreateIntermediateDirectories(System.String) Void RemoveItem(System.String, Boolean) Void RemoveDirectoryInfoItem(System.IO.DirectoryInfo, Boolean, Boolean, Boolean) Void RemoveFileSystemItem(System.IO.FileSystemInfo, Boolean) Boolean ItemExists(System.String, System.Management.Automation.ErrorRecord ByRef) Boolean DirectoryInfoHasChildItems(System.IO.DirectoryInfo) Void CopyItem(System.String, System.String, Boolean) Void CopyItemFromRemoteSession(System.String, System.String, Boolean, Boolean, System.Management.Automation.Runspaces.PSSession) Void CopyDirectoryInfoItem(System.IO.DirectoryInfo, System.String, Boolean, Boolean, System.Management.Automation.PowerShell) Void CopyFileInfoItem(System.IO.FileInfo, System.String, Boolean, System.Management.Automation.PowerShell) Void CopyDirectoryFromRemoteSession(System.String, System.String, System.String, Boolean, Boolean, System.Management.Automation.PowerShell) System.Collections.ArrayList GetRemoteSourceAlternateStreams(System.Management.Automation.PowerShell, System.String) Void RemoveFunctionsPSCopyFileFromRemoteSession(System.Management.Automation.PowerShell) System.Collections.Hashtable GetRemoteFileMetadata(System.String, System.Management.Automation.PowerShell) Void SetFileMetadata(System.String, System.IO.FileInfo, System.Management.Automation.PowerShell) Void CopyFileFromRemoteSession(System.String, System.String, System.String, Boolean, System.Management.Automation.PowerShell, Int64) Boolean PerformCopyFileFromRemoteSession(System.String, System.IO.FileInfo, System.String, Boolean, System.Management.Automation.PowerShell, Int64, Boolean, System.String) Void RemoveFunctionPSCopyFileToRemoteSession(System.Management.Automation.PowerShell) Boolean RemoteTargetSupportsAlternateStreams(System.Management.Automation.PowerShell, System.String) System.String MakeRemotePath(System.Management.Automation.PowerShell, System.String, System.String) Boolean RemoteDirectoryExist(System.Management.Automation.PowerShell, System.String) Boolean CopyFileStreamToRemoteSession(System.IO.FileInfo, System.String, System.Management.Automation.PowerShell, Boolean, System.String) System.Collections.Hashtable GetFileMetadata(System.IO.FileInfo) Void SetRemoteFileMetadata(System.IO.FileInfo, System.String, System.Management.Automation.PowerShell) Boolean PerformCopyFileToRemoteSession(System.IO.FileInfo, System.String, System.Management.Automation.PowerShell) Boolean RemoteDestinationPathIsFile(System.String, System.Management.Automation.PowerShell) System.String CreateDirectoryOnRemoteSession(System.String, Boolean, System.Management.Automation.PowerShell) System.String GetParentPath(System.String, System.String) Boolean IsUNCPath(System.String) Boolean IsUNCRoot(System.String) Boolean IsPathRoot(System.String) System.String NormalizeRelativePath(System.String, System.String) System.String NormalizeRelativePathHelper(System.String, System.String) System.String RemoveRelativeTokens(System.String) System.Collections.Generic.Stack`1[System.String] TokenizePathToStack(System.String, System.String) System.Collections.Generic.Stack`1[System.String] NormalizeThePath(System.String, System.Collections.Generic.Stack`1[System.String]) System.String GetChildName(System.String) System.String EnsureDriveIsRooted(System.String) Void MoveItem(System.String, System.String) Void MoveFileInfoItem(System.IO.FileInfo, System.String, Boolean, Boolean) Void MoveDirectoryInfoItem(System.IO.DirectoryInfo, System.String, Boolean) Void CopyAndDelete(System.IO.DirectoryInfo, System.String, Boolean) Void GetProperty(System.String, System.Collections.ObjectModel.Collection`1[System.String]) Void SetProperty(System.String, System.Management.Automation.PSObject) Void ClearProperty(System.String, System.Collections.ObjectModel.Collection`1[System.String]) System.Management.Automation.Provider.IContentReader GetContentReader(System.String) System.Object GetContentReaderDynamicParameters(System.String) System.Management.Automation.Provider.IContentWriter GetContentWriter(System.String) Void ClearContent(System.String) Void ValidateParameters(Boolean) Void GetSecurityDescriptor(System.String, System.Security.AccessControl.AccessControlSections) Void SetSecurityDescriptor(System.String, System.Security.AccessControl.ObjectSecurity) Void SetSecurityDescriptor(System.String, System.Security.AccessControl.ObjectSecurity, System.Security.AccessControl.AccessControlSections) Void \u003cRemoveDirectoryInfoItem\u003eg__WriteErrorHelper|43_0(System.Exception, \u003c\u003ec__DisplayClass43_0 ByRef)","DeclaredNestedTypes":"Microsoft.PowerShell.Commands.FileSystemProvider+ItemType Microsoft.PowerShell.Commands.FileSystemProvider+NativeMethods Microsoft.PowerShell.Commands.FileSystemProvider+NetResource Microsoft.PowerShell.Commands.FileSystemProvider+InodeTracker Microsoft.PowerShell.Commands.FileSystemProvider+\u003c\u003ec__DisplayClass43_0","DeclaredProperties":"","ImplementedInterfaces":"System.Management.Automation.IResourceSupplier System.Management.Automation.Provider.IContentCmdletProvider System.Management.Automation.Provider.IPropertyCmdletProvider System.Management.Automation.Provider.ISecurityDescriptorCmdletProvider System.Management.Automation.Provider.ICmdletProviderSupportsHelp","TypeInitializer":"Void .cctor()","IsNested":false,"Attributes":1048833,"IsVisible":true,"IsNotPublic":false,"IsPublic":true,"IsNestedPublic":false,"IsNestedPrivate":false,"IsNestedFamily":false,"IsNestedAssembly":false,"IsNestedFamANDAssem":false,"IsNestedFamORAssem":false,"IsAutoLayout":true,"IsLayoutSequential":false,"IsExplicitLayout":false,"IsClass":true,"IsInterface":false,"IsValueType":false,"IsAbstract":false,"IsSealed":true,"IsSpecialName":false,"IsImport":false,"IsSerializable":false,"IsAnsiClass":true,"IsUnicodeClass":false,"IsAutoClass":false,"IsArray":false,"IsByRef":false,"IsPointer":false,"IsPrimitive":false,"IsCOMObject":false,"HasElementType":false,"IsContextful":false,"IsMarshalByRef":false,"GenericTypeArguments":"","CustomAttributes":"[System.Management.Automation.OutputTypeAttribute(new Type[2] { typeof(System.String), typeof(System.IO.FileInfo) }, ProviderCmdlet = \"New-Item\")] [System.Management.Automation.OutputTypeAttribute(typeof(System.Security.AccessControl.FileSecurity), ProviderCmdlet = \"Set-Acl\")] [System.Management.Automation.OutputTypeAttribute(new Type[2] { typeof(System.String), typeof(System.Management.Automation.PathInfo) }, ProviderCmdlet = \"Resolve-Path\")] [System.Management.Automation.OutputTypeAttribute(typeof(System.Management.Automation.PathInfo), ProviderCmdlet = \"Push-Location\")] [System.Management.Automation.OutputTypeAttribute(new Type[2] { typeof(System.Byte), typeof(System.String) }, ProviderCmdlet = \"Get-Content\")] [System.Management.Automation.OutputTypeAttribute(typeof(System.IO.FileInfo), ProviderCmdlet = \"Get-Item\")] [System.Management.Automation.OutputTypeAttribute(new Type[2] { typeof(System.IO.FileInfo), typeof(System.IO.DirectoryInfo) }, ProviderCmdlet = \"Get-ChildItem\")] [System.Management.Automation.OutputTypeAttribute(new Type[2] { typeof(System.Security.AccessControl.FileSecurity), typeof(System.Security.AccessControl.DirectorySecurity) }, ProviderCmdlet = \"Get-Acl\")] [System.Management.Automation.OutputTypeAttribute(new Type[4] { typeof(System.Boolean), typeof(System.String), typeof(System.IO.FileInfo), typeof(System.IO.DirectoryInfo) }, ProviderCmdlet = \"Get-Item\")] [System.Management.Automation.OutputTypeAttribute(new Type[5] { typeof(System.Boolean), typeof(System.String), typeof(System.DateTime), typeof(System.IO.FileInfo), typeof(System.IO.DirectoryInfo) }, ProviderCmdlet = \"Get-ItemProperty\")] [System.Management.Automation.Provider.CmdletProviderAttribute(\"FileSystem\", (System.Management.Automation.Provider.ProviderCapabilities)52)]"},"HelpFile":"System.Management.Automation.dll-Help.xml","Name":"FileSystem","PSSnapIn":{"Name":"Microsoft.PowerShell.Core","IsDefault":true,"ApplicationBase":"C:\\Windows\\System32\\WindowsPowerShell\\v1.0","AssemblyName":"System.Management.Automation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, ProcessorArchitecture=MSIL","ModuleName":"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\System.Management.Automation.dll","PSVersion":"5.1.26100.8655","Version":"3.0.0.0","Types":"types.ps1xml typesv3.ps1xml","Formats":"Certificate.format.ps1xml DotNetTypes.format.ps1xml FileSystem.format.ps1xml Help.format.ps1xml HelpV3.format.ps1xml PowerShellCore.format.ps1xml PowerShellTrace.format.ps1xml Registry.format.ps1xml","Description":"This Windows PowerShell snap-in contains cmdlets used to manage components of Windows PowerShell.","Vendor":"Microsoft Corporation","LogPipelineExecutionDetails":false},"ModuleName":"Microsoft.PowerShell.Core","Module":null,"Description":"","Capabilities":52,"Home":"C:\\Users\\t1600","Drives":["C"]},"ReadCount":1};
 
 const fallbackTests = [
   {
     code: "GLU",
-    name: "銵蝟?,
+    name: "血糖",
     english: "Glucose",
-    aliases: "憌臬?銵蝟?蝛箄銵蝟??∟?蝟?,
-    specimen: "銵瘨?,
-    fasting: "撱箄降蝛箄 8 撠?嚗??怠??箸?",
-    turnaround: "?嗆",
-    meaning: "閰摯銵瘨脖葉?∟?蝟?摨佗?撣貊?潛?撠輻?蝭拇炎??蝟?嗉蕭頩扎?,
-    note: "?質???靘?Ⅱ隤?阡?蝛箄??
+    aliases: "飯前血糖,空腹血糖,葡萄糖",
+    specimen: "血液",
+    fasting: "建議空腹 8 小時，依醫囑為準",
+    turnaround: "當日",
+    meaning: "評估血液中葡萄糖濃度，常用於糖尿病篩檢與血糖控制追蹤。",
+    note: "抽血前請依醫囑確認是否需空腹。"
   },
   {
     code: "CBC",
-    name: "?刻?????,
+    name: "全血球計數",
     english: "Complete Blood Count",
-    aliases: "銵???質???蝝???銵撠,銵蝝?",
-    specimen: "銵瘨?,
-    fasting: "?虜銝?蝛箄",
-    turnaround: "?嗆",
-    meaning: "閰摯?質???銵??蝝???撠蝑?瘨脩敦????,
-    note: "?交??寞??怠?嚗?靘霅瑚犖?∟牧??
+    aliases: "血球,白血球,紅血球,血小板,血紅素",
+    specimen: "血液",
+    fasting: "通常不需空腹",
+    turnaround: "當日",
+    meaning: "評估白血球、紅血球、血紅素與血小板等血液細胞狀態。",
+    note: "若有特殊醫囑，請依醫護人員說明。"
   },
   {
     code: "AST",
-    name: "暻抵??貉??粹",
+    name: "麩草酸轉胺酶",
     english: "AST / GOT",
-    aliases: "GOT,????????,
-    specimen: "銵瘨?,
-    fasting: "?虜銝?蝛箄",
-    turnaround: "?嗆",
-    meaning: "撣貊?潸?隡啗??????嗡?蝯?蝝啗????賊????,
-    note: "瑼ａ??詨潮??剝? ALT?蝝??摨?瘜霈??
+    aliases: "GOT,肝功能,肝指數",
+    specimen: "血液",
+    fasting: "通常不需空腹",
+    turnaround: "當日",
+    meaning: "常用於評估肝臟、肌肉或其他組織細胞受損相關狀態。",
+    note: "檢驗數值需搭配 ALT、膽紅素及臨床狀況判讀。"
   },
   {
     code: "ALT",
-    name: "暻拐??桅頧??,
+    name: "麩丙酮酸轉胺酶",
     english: "ALT / GPT",
-    aliases: "GPT,????????,
-    specimen: "銵瘨?,
-    fasting: "?虜銝?蝛箄",
-    turnaround: "?嗆",
-    meaning: "撣貊?潸?隡啗?蝝啗??嚗??梢撣急???脰??嗡?瑼Ｘ閫????,
-    note: "AI 撠?????犖?勗?閮箸??
+    aliases: "GPT,肝功能,肝指數",
+    specimen: "血液",
+    fasting: "通常不需空腹",
+    turnaround: "當日",
+    meaning: "常用於評估肝細胞損傷，需由醫師搭配病史與其他檢查解讀。",
+    note: "AI 小助理不提供個人報告診斷。"
   },
   {
     code: "TG",
-    name: "銝?硃??,
+    name: "三酸甘油脂",
     english: "Triglyceride",
-    aliases: "銵???,擃???,
-    specimen: "銵瘨?,
-    fasting: "撣賊?蝛箄 8 ??12 撠?",
-    turnaround: "?嗆",
-    meaning: "閰摯銵瘨脖葉銝?硃??摨佗??誨雓?銵蝞⊿◢?芾?隡啁??,
-    note: "?質????踹?憌脤???瘝寡?憌脤?嚗祕??摰??Ｗ瑼ａ?瘚???
+    aliases: "血脂,脂肪,高血脂",
+    specimen: "血液",
+    fasting: "常需空腹 8 至 12 小時",
+    turnaround: "當日",
+    meaning: "評估血液中三酸甘油脂濃度，與代謝、心血管風險評估相關。",
+    note: "抽血前請避免飲酒與高油脂飲食，實際規定依院內檢驗流程。"
   }
 ];
 
@@ -921,7 +924,7 @@ function renderFaq(filter = "all") {
     .map(
       (item, index) => `
         <button class="faq-item ${index === 0 ? "open" : ""}" type="button">
-          <span class="faq-question">${item.question}<span>嚗?/span></span>
+          <span class="faq-question">${item.question}<span>＋</span></span>
           <span class="faq-answer">${item.answer}</span>
         </button>
       `
@@ -957,7 +960,7 @@ function renderTests(query = "") {
   const results = searchTests(query);
   testResults.innerHTML = results.length
     ? results.map(renderTestItem).join("")
-    : `<article class="test-item"><strong>?亦蝚血??</strong><p class="test-meta">隢?冽炎撽?蝔晞?葬撖怒?????賊?摮??亥岷??/p></article>`;
+    : `<article class="test-item"><strong>查無符合項目</strong><p class="test-meta">請改用檢驗名稱、英文縮寫、別名或症狀相關字詞查詢。</p></article>`;
 }
 
 function renderTestItem(item) {
@@ -967,14 +970,14 @@ function renderTestItem(item) {
         <h3>${item.name} <span class="test-meta">${item.english || ""}</span></h3>
         <span class="test-code">${item.code || "ITEM"}</span>
       </div>
-      <p>${item.meaning || "?怎瑼ａ??儔隤芣???}</p>
+      <p>${item.meaning || "暫無檢驗意義說明。"}</p>
       <div class="test-meta">
-        <span><strong>瑼ａ?嚗?/strong>${item.specimen || "靘炎撽?蝭?}</span>
-        <span><strong>蝛箄嚗?/strong>${item.fasting || "靘??}</span>
-        <span><strong>?勗?嚗?/strong>${item.turnaround || "靘炎撽?蝔?}</span>
-        <span><strong>?亙?嚗?/strong>${item.aliases || "??}</span>
+        <span><strong>檢體：</strong>${item.specimen || "依檢驗規範"}</span>
+        <span><strong>空腹：</strong>${item.fasting || "依醫囑"}</span>
+        <span><strong>報告：</strong>${item.turnaround || "依檢驗流程"}</span>
+        <span><strong>別名：</strong>${item.aliases || "無"}</span>
       </div>
-      ${item.note ? `<p class="test-meta"><strong>瘜冽?嚗?/strong>${item.note}</p>` : ""}
+      ${item.note ? `<p class="test-meta"><strong>注意：</strong>${item.note}</p>` : ""}
     </article>
   `;
 }
@@ -1026,13 +1029,13 @@ function parseCsv(text) {
 
 async function loadTests() {
   const source = GOOGLE_SHEET_CSV_URL || "";
-  document.querySelector("#dataSourceLabel").textContent = `鞈?靘?嚗?{GOOGLE_SHEET_CSV_URL ? "Google Sheet CSV" : "data/tests.csv"}`;
+  document.querySelector("#dataSourceLabel").textContent = `資料來源：${GOOGLE_SHEET_CSV_URL ? "Google Sheet CSV" : "data/tests.csv"}`;
 
   try {
     if (!source) { tests = parseCsv(embeddedCsv); } else { const response = await fetch(source, { cache: "no-store" }); if (!response.ok) throw new Error(`HTTP ${response.status}`); tests = parseCsv(await response.text()); }
   } catch (error) {
     tests = fallbackTests;
-    document.querySelector("#dataSourceLabel").textContent = "鞈?靘?嚗撱箇?靘???;
+    document.querySelector("#dataSourceLabel").textContent = "資料來源：內建範例資料";
   }
 
   renderTests(testSearch.value);
@@ -1049,28 +1052,28 @@ function addMessage(role, content, source = "") {
 function localAssistantReply(message) {
   const relatedTests = searchTests(message).slice(0, 3);
   const relatedFaq = faqItems.find((item) => normalize(message).includes(normalize(item.question).slice(0, 2)));
-  const safety = "??嚗I ????銵???銝?誨?怠葦閮箸?祥???犖?勗??方???;
+  const safety = "提醒：AI 回答僅供衛教參考，不能取代醫師診斷、治療或個人報告判讀。";
 
   if (relatedTests.length) {
     const list = relatedTests
-      .map((item) => `<strong>${item.name}</strong>嚗?{item.meaning} 蝛箄?瘙?${item.fasting}?)
+      .map((item) => `<strong>${item.name}</strong>：${item.meaning} 空腹需求：${item.fasting}。`)
       .join("<br>");
     return {
       content: `${list}<br><br>${safety}`,
-      source: `?賊??嚗?{relatedTests.map((item) => item.code || item.name).join("??)}`
+      source: `相關項目：${relatedTests.map((item) => item.code || item.name).join("、")}`
     };
   }
 
   if (relatedFaq) {
     return {
       content: `${relatedFaq.answer}<br><br>${safety}`,
-      source: "靘?嚗AQ 銵?鞈?"
+      source: "來源：FAQ 衛教資料"
     };
   }
 
   return {
-    content: `?桀??亥?摨急???啗雲憭?蝣箇??詨?鞈??遣霅唳隞交炎撽?蝔晞?葬撖急??質?瘜冽?鈭??亥岷嚗?瘣賣炎撽???蝒??br><br>${safety}`,
-    source: "靘?嚗璈?MVP 閬?"
+    content: `目前知識庫沒有找到足夠明確的核准資料。建議改以檢驗名稱、英文縮寫或抽血注意事項查詢，或洽檢驗科服務窗口。<br><br>${safety}`,
+    source: "來源：本機 MVP 規則"
   };
 }
 
@@ -1116,14 +1119,14 @@ chatForm.addEventListener("submit", async (event) => {
 
   addMessage("user", message);
   chatInput.value = "";
-  addMessage("assistant", "甇??亥岷?詨?鞈?...");
+  addMessage("assistant", "正在查詢核准資料...");
   const pending = chatMessages.lastElementChild;
 
   try {
     const reply = await askAssistant(message);
-    pending.innerHTML = `${reply.content || reply.answer || "?桀??⊥???????}${reply.source ? `<small>${reply.source}</small>` : ""}`;
+    pending.innerHTML = `${reply.content || reply.answer || "目前無法取得回覆。"}${reply.source ? `<small>${reply.source}</small>` : ""}`;
   } catch (error) {
-    pending.innerHTML = "?桀? AI ???急??⊥????嚗?蝔??岫??冽炎撽??格閰Ｕ?;
+    pending.innerHTML = "目前 AI 服務暫時無法連線，請稍後再試或改用檢驗項目查詢。";
   }
 });
 
@@ -1136,11 +1139,10 @@ renderFaq();
 loadTests();
 addMessage(
   "assistant",
-  "?典末嚗??舀炎撽垣閰Ｗ??拍??隞亥岷?銵????衣征?嫘炎撽??格?蝢抵??⊥炎瘜冽?鈭???,
-  "?桀?雿輻?祆? MVP ?亥?摨?
+  "您好，我是檢驗諮詢小助理。可以詢問抽血時間、是否空腹、檢驗項目意義與採檢注意事項。",
+  "目前使用本機 MVP 知識庫"
 );
 
 </script>
   </body>
 </html>
-
