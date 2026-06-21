@@ -606,7 +606,7 @@ input {
   display: grid;
   align-content: start;
   gap: 12px;
-  height: clamp(260px, 38vh, 340px);
+  height: clamp(460px, 62vh, 680px);
   padding: 16px;
   overflow: auto;
   background: #f4f8f8;
@@ -722,9 +722,14 @@ input {
   background: var(--teal);
 }
 
-.message:has(.answer-table) {
-  max-width: min(96%, 860px);
+.message:has(.answer-table),
+.message.table-message {
+  justify-self: stretch;
+  width: 100%;
+  max-width: 100%;
+  max-height: none;
   overflow-x: auto;
+  overflow-y: visible;
 }
 
 .chat-form {
@@ -962,7 +967,7 @@ input {
   }
 
   .chat-messages {
-    height: clamp(280px, 42vh, 360px);
+    height: clamp(440px, 64vh, 620px);
   }
 }
 
@@ -1047,13 +1052,18 @@ input {
   }
 
   .chat-messages {
-    height: clamp(260px, 45vh, 340px);
+    height: clamp(420px, 66vh, 600px);
     padding: 12px;
   }
 
   .message {
     max-width: 92%;
     font-size: 15px;
+  }
+
+  .message:has(.answer-table),
+  .message.table-message {
+    max-width: 100%;
   }
 
   .chat-form {
@@ -2202,8 +2212,12 @@ chatForm.addEventListener("submit", async (event) => {
   try {
     const reply = await askAssistant(message);
     pending.innerHTML = `${reply.content || reply.answer || "目前無法取得回覆。"}${reply.source ? `<small class="message-source">出處：${reply.source}</small>` : ""}`;
+    pending.classList.toggle("table-message", Boolean(pending.querySelector(".answer-table")));
+    pending.scrollIntoView({ block: "start" });
   } catch (error) {
     pending.innerHTML = "目前 AI 服務暫時無法連線，請稍後再試或改用檢驗項目查詢。";
+    pending.classList.remove("table-message");
+    pending.scrollIntoView({ block: "start" });
   }
 });
 
