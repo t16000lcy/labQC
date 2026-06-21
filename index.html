@@ -1698,6 +1698,31 @@ function expansionForTopic(topic) {
   return { label: topic, terms: [topic] };
 }
 
+const FUNCTION_GROUP_REPLIES = {
+  肝功能:
+    "「肝功能檢驗」不是單一檢驗，而是一組與肝細胞傷害、膽汁鬱積、膽紅素代謝、肝臟合成功能相關的檢驗。常見應包含以下項目：MedlinePlus 與 NCBI StatPearls 均列出 ALT、AST、ALP、GGT、bilirubin、albumin、total protein、PT/INR 等作為常見肝功能或肝臟血液檢查項目。詳細請到 <a href=\"http://211.21.176.82:8098/#/\" target=\"_blank\" rel=\"noopener\">檢驗項目查詢</a> 進行搜尋。",
+  腎功能:
+    "「腎功能檢驗」不是單一檢驗，而是一組與腎臟過濾、含氮廢物排除、尿蛋白、電解質與尿液狀態相關的檢驗。常見可包含 Creatinine/肌酸酐、eGFR、BUN/尿素氮、Cystatin C、尿蛋白、微量白蛋白或 ACR、尿液檢查，以及鉀、磷、鈣等電解質項目。詳細請到 <a href=\"http://211.21.176.82:8098/#/\" target=\"_blank\" rel=\"noopener\">檢驗項目查詢</a> 進行搜尋。",
+  甲狀腺:
+    "「甲狀腺功能檢驗」不是單一檢驗，而是一組用來評估甲狀腺荷爾蒙分泌與調控狀態的檢驗。常見可包含 TSH、Free T4、Free T3、T3、T4，以及依醫囑加做甲狀腺相關抗體。詳細請到 <a href=\"http://211.21.176.82:8098/#/\" target=\"_blank\" rel=\"noopener\">檢驗項目查詢</a> 進行搜尋。",
+  血脂:
+    "「血脂檢驗」不是單一檢驗，而是一組與膽固醇、三酸甘油脂與心血管風險評估相關的檢驗。常見可包含 total cholesterol、triglyceride、HDL-C、LDL-C、ApoA、ApoB、lipoprotein(a) 等項目。詳細請到 <a href=\"http://211.21.176.82:8098/#/\" target=\"_blank\" rel=\"noopener\">檢驗項目查詢</a> 進行搜尋。",
+  血糖:
+    "「血糖相關檢驗」不是單一檢驗，而是一組與當下血糖、餐後血糖變化與長期血糖控制相關的檢驗。常見可包含飯前血糖、飯後血糖、HbA1c、必要時依醫囑加做 insulin 或 C-peptide 等項目。詳細請到 <a href=\"http://211.21.176.82:8098/#/\" target=\"_blank\" rel=\"noopener\">檢驗項目查詢</a> 進行搜尋。"
+};
+
+function detectFunctionGroupTopic(message) {
+  const text = String(message || "").trim();
+  if (!/(功能|血脂|血糖).*(檢驗|檢查|有哪些|要驗什麼|[?？])/.test(text)) return "";
+  const topic = detectTestListTopic(text) || text.replace(/請問|我想知道|想知道|的|檢查|檢驗|有哪些|要驗什麼|[?？]/g, "").trim();
+  const expansion = expansionForTopic(topic);
+  return FUNCTION_GROUP_REPLIES[expansion.label] ? expansion.label : "";
+}
+
+function renderFunctionGroupReply(topic) {
+  return `${FUNCTION_GROUP_REPLIES[topic]}<br><br>${TEST_LIST_FOOTER}`;
+}
+
 function testListScore(item, terms) {
   const primaryText = [item.related_system, item.clinical_use, item.keywords, item.category].filter(Boolean).join(" ");
   const identityText = [item.name, item.english, item.abbreviation, item.code].filter(Boolean).join(" ");
@@ -2073,6 +2098,14 @@ function localAssistantReply(message) {
     return {
       content: `抽血櫃檯服務時間：<br>星期一至五：上午 7:30～晚上 21:30 止。<br>星期六：上午 7:30～中午 12:00 止。<br><br>實驗室服務時間：<br>24 小時全年無休。<br><br><a href="https://www.cmu-hch.cmu.edu.tw/Department/Detail?depid=28" target="_blank" rel="noopener">開啟院方檢驗科頁面</a><br><br>${safety}`,
       source: "網站資訊；中國醫藥大學新竹附設醫院檢驗科頁面；抽血櫃檯服務時間"
+    };
+  }
+
+  const functionTopic = detectFunctionGroupTopic(message);
+  if (functionTopic) {
+    return {
+      content: renderFunctionGroupReply(functionTopic),
+      source: functionTopic === "肝功能" ? "MedlinePlus；NCBI StatPearls；檢驗項目查詢系統" : "檢驗項目查詢系統；功能檢驗衛教摘要"
     };
   }
 
