@@ -1661,8 +1661,10 @@ function searchTests(query) {
 function detectTestListTopic(message) {
   const text = String(message || "").trim();
   const patterns = [
+    /(.+?功能)有哪些/,
     /(.+?功能)檢查有哪些/,
     /(.+?)檢查有哪些/,
+    /(.+?)相關檢查有哪些/,
     /(.+?)相關檢驗有哪些/,
     /檢查(.+?)要驗什麼/,
     /(.+?)要驗哪些/,
