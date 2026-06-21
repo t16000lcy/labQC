@@ -1585,6 +1585,27 @@ function searchTests(query) {
   });
 }
 
+function findMentionedTests(message) {
+  const normalizedMessage = normalize(message);
+  const sourceTests = tests.length ? tests : fallbackTests;
+  const matches = sourceTests
+    .map((item) => {
+      const terms = [item.code, item.name, item.english, item.aliases]
+        .join(",")
+        .split(",")
+        .map((term) => normalize(term))
+        .filter((term) => term.length >= 2);
+      const bestLength = terms.reduce((best, term) => {
+        if (!term) return best;
+        return normalizedMessage.includes(term) ? Math.max(best, term.length) : best;
+      }, 0);
+      return { item, score: bestLength };
+    })
+    .filter((entry) => entry.score > 0)
+    .sort((a, b) => b.score - a.score);
+  return matches.map((entry) => entry.item);
+}
+
 function renderTests(query = "") {
   if (!testResults) return;
   const results = searchTests(query);
@@ -1852,6 +1873,12 @@ function isPersonalMedicalJudgment(message) {
     judgmentTerms.some((term) => normalizedMessage.includes(normalize(term)));
 }
 
+function isReportConcernQuestion(message) {
+  const normalizedMessage = normalize(message);
+  const reportTerms = ["紅字", "偏高", "偏低", "異常", "過高", "過低", "正常嗎", "嚴重", "超標", "超出", "報告"];
+  return reportTerms.some((term) => normalizedMessage.includes(normalize(term)));
+}
+
 function renderLabTestAnswer(item, useReportWarning = false) {
   const reportWarning = "檢驗報告需由醫師依個人症狀、病史、用藥、影像與其他檢查綜合判讀。若出現胸痛、呼吸困難、意識改變、嚴重出血、高燒不退、黑便、血尿或檢驗科通知危急值，請立即就醫或依醫療人員指示處理。";
   const referenceNote = useReportWarning
@@ -1862,7 +1889,7 @@ function renderLabTestAnswer(item, useReportWarning = false) {
 }
 
 function localAssistantReply(message) {
-  const relatedTests = searchTests(message).slice(0, 3);
+  const relatedTests = (findMentionedTests(message).length ? findMentionedTests(message) : searchTests(message)).slice(0, 3);
   const normalizedMessage = normalize(message);
   const relatedFaq = findFaqAnswer(message);
   const relatedScope = consultationScopes.find((item) =>
@@ -1872,7 +1899,7 @@ function localAssistantReply(message) {
   const relatedClinicalQa = qaCandidates[0] || null;
   const specificTestMention = hasSpecificTestMention(message);
   const testRelatedIntent = hasTestRelatedIntent(message);
-  const personalMedicalJudgment = isPersonalMedicalJudgment(message);
+  const personalMedicalJudgment = isPersonalMedicalJudgment(message) || (relatedTests.length > 0 && isReportConcernQuestion(message));
   const safety = "提醒：AI 回答僅供衛教參考，不能取代醫師診斷、治療或個人報告判讀。";
 
   if (isBloodServiceTimeQuestion(message)) {
