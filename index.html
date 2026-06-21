@@ -544,6 +544,17 @@ input {
   padding-left: 22px;
 }
 
+.assistant-warning {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-left: 4px solid var(--coral);
+  border-radius: 6px;
+  color: var(--ink);
+  background: rgba(216, 125, 100, 0.08);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
 .chat-shell {
   min-width: 0;
   border: 1px solid var(--line);
@@ -1189,6 +1200,9 @@ input {
             <li>不答：診斷、治療、用藥調整、個人報告嚴重度判斷。</li>
             <li>急症或個人病情請立即洽醫師或急診。</li>
           </ul>
+          <p class="assistant-warning">
+            警語：檢驗報告需由醫師依個人症狀、病史、用藥、影像與其他檢查綜合判讀。若出現胸痛、呼吸困難、意識改變、嚴重出血、高燒不退、黑便、血尿或檢驗科通知危急值，請立即就醫或依醫療人員指示處理。
+          </p>
         </div>
         <div class="chat-shell" aria-label="醫檢AI小助理對話">
           <div class="chat-header">
