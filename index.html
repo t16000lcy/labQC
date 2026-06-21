@@ -606,8 +606,8 @@ input {
   display: grid;
   align-content: start;
   gap: 12px;
-  height: 380px;
-  padding: 18px;
+  height: clamp(260px, 38vh, 340px);
+  padding: 16px;
   overflow: auto;
   background: #f4f8f8;
 }
@@ -640,6 +640,64 @@ input {
   border-top: 1px solid rgba(95, 111, 118, 0.2);
   font-size: 12px;
   line-height: 1.5;
+}
+
+.qa-choice-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.qa-choice {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 10px;
+  align-items: start;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f9fcfc;
+  cursor: pointer;
+}
+
+.qa-choice input {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--teal);
+}
+
+.qa-choice strong {
+  display: block;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.qa-choice small,
+.choice-hint {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.qa-choice-submit {
+  margin-top: 12px;
+  min-height: 38px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 8px;
+  color: #fff;
+  background: var(--teal);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.answer-divider {
+  margin: 14px 0;
+  border: 0;
+  border-top: 1px solid var(--line);
 }
 
 .chat-form {
@@ -877,7 +935,7 @@ input {
   }
 
   .chat-messages {
-    height: 420px;
+    height: clamp(280px, 42vh, 360px);
   }
 }
 
@@ -962,7 +1020,7 @@ input {
   }
 
   .chat-messages {
-    height: 390px;
+    height: clamp(260px, 45vh, 340px);
     padding: 12px;
   }
 
@@ -1140,7 +1198,8 @@ input {
 
     <script>
 const GOOGLE_SHEET_CSV_URL = "";
-const CHAT_API_ENDPOINT = "";
+const CHAT_API_ENDPOINT =
+  window.location.protocol === "file:" || window.location.hostname.includes("github.io") ? "" : "/api/chat";
 
 const faqItems = [
   {
@@ -1156,7 +1215,7 @@ const faqItems = [
   {
     category: "blood",
     question: "抽血櫃檯服務時間是什麼時候？",
-    answer: "參考檢驗科公開資訊，抽血櫃檯服務時間為星期一至五 07:30-21:30，星期六 07:30-12:00；實際時間請以院方最新公告為準。"
+    answer: "抽血櫃檯服務時間：<br>星期一至五：上午 7:30～晚上 21:30 止。<br>星期六：上午 7:30～中午 12:00 止。<br><br>實驗室服務時間：<br>24 小時全年無休。"
   },
   {
     category: "report",
@@ -1278,7 +1337,7 @@ const fallbackTests = [
 const consultationScopes = [
   {
     keywords: ["抽血時間", "服務時間", "幾點", "週六", "星期六"],
-    answer: "抽血櫃檯服務時間可參考：星期一至五 07:30-21:30，星期六 07:30-12:00；實際時段仍以院方最新公告為準。"
+    answer: "抽血櫃檯服務時間：<br>星期一至五：上午 7:30～晚上 21:30 止。<br>星期六：上午 7:30～中午 12:00 止。<br><br>實驗室服務時間：<br>24 小時全年無休。"
   },
   {
     keywords: ["諮詢", "電話", "分機", "聯絡"],
@@ -1625,52 +1684,65 @@ function addMessage(role, content, source = "") {
 
 function tokenizeQuestion(value) {
   return normalize(value)
-    .replace(/[???,?.:?;?()??/\\-]/g, " ")
+    .replace(/[，。？！、：；,.?:;()（）「」『』/\\-]/g, " ")
     .split(/\s+/)
     .filter((token) => token.length >= 2);
 }
 
-function findClinicalQa(message) {
-  const normalizedMessage = normalize(message);
-  const keywordRules = [
-    { pattern: /ctdna/, ids: ["LB2"] },
-    { pattern: /液態切片|液體切片/, ids: ["LB1"] },
-    { pattern: /ngs|次世代定序/, ids: ["LB3"] },
-    { pattern: /snv/, ids: ["LB19"] },
-    { pattern: /indel/, ids: ["LB20"] },
-    { pattern: /cnv/, ids: ["LB21"] },
-    { pattern: /fusion|基因融合/, ids: ["LB22"] },
-    { pattern: /24\\s*(cancer\\s*)?panel|24\\s*基因/, ids: ["LB24"] },
-    { pattern: /55\\s*(cancer\\s*)?panel|55\\s*基因/, ids: ["LB25"] },
-    { pattern: /77\\s*(cancer\\s*)?panel|77\\s*基因/, ids: ["LB26"] },
-    { pattern: /197\\s*(cancer\\s*)?panel|197\\s*基因/, ids: ["LB27"] },
-    { pattern: /(液態切片|液體切片|ngs|次世代定序|panel).*(費用|價格|多少錢)|(費用|價格|多少錢).*(液態切片|液體切片|ngs|次世代定序|panel)/, ids: ["LB28"] },
-    { pattern: /瘀青|血腫/, ids: ["Q2", "Q1"] },
-    { pattern: /抽不到血|不好抽|難抽/, ids: ["Q3"] },
-    { pattern: /暈針|昏倒|暈眩/, ids: ["Q4"] },
-    { pattern: /按壓|手臂彎曲|止血/, ids: ["Q5"] },
-    { pattern: /手麻|麻麻|神經/, ids: ["Q6"] },
-    { pattern: /溶血/, ids: ["Q7", "Q16"] },
-    { pattern: /clot|凝固|凝集/, ids: ["Q8"] },
-    { pattern: /不足|血量|檢體量/, ids: ["Q9"] },
-    { pattern: /點滴|輸液/, ids: ["Q10"] },
-    { pattern: /試管|倒來倒去|採血順序/, ids: ["Q11"] },
-    { pattern: /冰水|冰浴|立刻送檢|立即送檢/, ids: ["Q12"] },
-    { pattern: /data|差那麼多|差很多|重抽/, ids: ["Q13"] },
-    { pattern: /綠頭|黃頭|急生化/, ids: ["Q14"] },
-    { pattern: /灰頭/, ids: ["Q15"] },
-    { pattern: /拒收|退件條件|拒收條件/, ids: ["Q17"] },
-    { pattern: /退檢流程|退檢/, ids: ["Q18"] },
-    { pattern: /久置|放太久|短時間送檢/, ids: ["Q19"] }
-  ];
-  const directRule = keywordRules.find((rule) => rule.pattern.test(normalizedMessage));
-  if (directRule) {
-    const directItem = allQaItems.find((item) => directRule.ids.includes(item.id));
-    if (directItem) return directItem;
-  }
+const qaKeywordRules = [
+  { pattern: /ctdna/, ids: ["LB2"] },
+  { pattern: /液態切片|液體切片/, ids: ["LB1"] },
+  { pattern: /ngs|次世代定序/, ids: ["LB3"] },
+  { pattern: /snv/, ids: ["LB19"] },
+  { pattern: /indel/, ids: ["LB20"] },
+  { pattern: /cnv/, ids: ["LB21"] },
+  { pattern: /fusion|基因融合/, ids: ["LB22"] },
+  { pattern: /24\s*(cancer\s*)?panel|24\s*基因/, ids: ["LB24"] },
+  { pattern: /55\s*(cancer\s*)?panel|55\s*基因/, ids: ["LB25"] },
+  { pattern: /77\s*(cancer\s*)?panel|77\s*基因/, ids: ["LB26"] },
+  { pattern: /197\s*(cancer\s*)?panel|197\s*基因/, ids: ["LB27"] },
+  { pattern: /(液態切片|液體切片|ngs|次世代定序|panel).*(費用|價格|多少錢)|(費用|價格|多少錢).*(液態切片|液體切片|ngs|次世代定序|panel)/, ids: ["LB28"] },
+  { pattern: /瘀青|血腫/, ids: ["P6", "Q2", "Q1"] },
+  { pattern: /空腹|禁食|喝水/, ids: ["P2", "P3"] },
+  { pattern: /抽不到血|不好抽|難抽/, ids: ["Q3"] },
+  { pattern: /暈針|昏倒|暈眩|頭暈/, ids: ["P7", "Q4"] },
+  { pattern: /按壓|手臂彎曲|止血/, ids: ["Q5"] },
+  { pattern: /手麻|麻麻|神經/, ids: ["Q6"] },
+  { pattern: /溶血/, ids: ["Q7", "Q16"] },
+  { pattern: /clot|凝固|凝集/, ids: ["Q8"] },
+  { pattern: /不足|血量|檢體量/, ids: ["Q9"] },
+  { pattern: /點滴|輸液/, ids: ["Q10"] },
+  { pattern: /試管|倒來倒去|採血順序/, ids: ["Q11", "P8"] },
+  { pattern: /冰水|冰浴|立刻送檢|立即送檢/, ids: ["Q12"] },
+  { pattern: /data|差那麼多|差很多|重抽/, ids: ["Q13", "P9"] },
+  { pattern: /綠頭|黃頭|急生化/, ids: ["Q14"] },
+  { pattern: /灰頭/, ids: ["Q15"] },
+  { pattern: /拒收|退件條件|拒收條件/, ids: ["Q17"] },
+  { pattern: /退檢流程|退檢/, ids: ["Q18"] },
+  { pattern: /久置|放太久|短時間送檢/, ids: ["Q19"] }
+];
 
-  let best = null;
-  let bestScore = 0;
+function getQaSource(item) {
+  if (item.id.startsWith("LB")) return "網站資訊；液態切片次世代定序癌症基因檢測 DM 病人版";
+  if (item.id.startsWith("P")) return "網站資訊；病人常問問題題庫";
+  return "網站資訊；抽血與檢體常見問題題庫";
+}
+
+function renderQaContent(item, safety) {
+  return `<strong>${item.question}</strong><br>${formatAnswer(item.answer)}<br><br>${safety}`;
+}
+
+function findQaCandidates(message) {
+  const normalizedMessage = normalize(message);
+  const directIds = qaKeywordRules
+    .filter((rule) => rule.pattern.test(normalizedMessage))
+    .flatMap((rule) => rule.ids);
+  const candidateMap = new Map();
+
+  directIds.forEach((id, index) => {
+    const item = allQaItems.find((entry) => entry.id === id);
+    if (item) candidateMap.set(item.id, { item, score: 20 - index });
+  });
 
   allQaItems.forEach((item) => {
     const questionTokens = tokenizeQuestion(item.question);
@@ -1685,13 +1757,20 @@ function findClinicalQa(message) {
     if (normalizedMessage.includes(normalize(item.id))) score += 10;
     if (normalizedMessage.length >= 2 && haystack.includes(normalizedMessage)) score += 3;
 
-    if (score > bestScore) {
-      best = item;
-      bestScore = score;
+    if (score >= 3) {
+      const existing = candidateMap.get(item.id);
+      if (!existing || score > existing.score) candidateMap.set(item.id, { item, score });
     }
   });
 
-  return bestScore >= 3 ? best : null;
+  return [...candidateMap.values()]
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 5)
+    .map((entry) => entry.item);
+}
+
+function findClinicalQa(message) {
+  return findQaCandidates(message)[0] || null;
 }
 
 function formatAnswer(answer) {
@@ -1713,6 +1792,12 @@ function findFaqAnswer(message) {
   const matchedRule = faqKeywordMap.find((rule) => rule.pattern.test(normalizedMessage));
   if (matchedRule) return faqItems.find((item) => item.category === matchedRule.category);
   return faqItems.find((item) => normalizedMessage.includes(normalize(item.question).slice(0, 2)));
+}
+
+function isBloodServiceTimeQuestion(message) {
+  const normalizedMessage = normalize(message);
+  const serviceTimeTerms = ["抽血時間", "抽血幾點", "抽血服務時間", "抽血櫃檯", "服務時間", "星期六抽血", "週六抽血"];
+  return serviceTimeTerms.some((term) => normalizedMessage.includes(normalize(term)));
 }
 
 function hasSpecificTestMention(message) {
@@ -1759,6 +1844,23 @@ function hasTestRelatedIntent(message) {
   return intentTerms.some((term) => normalizedMessage.includes(normalize(term)));
 }
 
+function isPersonalMedicalJudgment(message) {
+  const normalizedMessage = normalize(message);
+  const personalizedTerms = ["我", "我的", "本人", "家人", "媽媽", "爸爸", "小孩", "報告", "數值", "紅字"];
+  const judgmentTerms = ["嚴重", "正常嗎", "有病", "是不是癌症", "是不是糖尿病", "診斷", "治療", "用藥", "停藥", "吃藥", "要不要回診", "需不需要開刀"];
+  return personalizedTerms.some((term) => normalizedMessage.includes(normalize(term))) &&
+    judgmentTerms.some((term) => normalizedMessage.includes(normalize(term)));
+}
+
+function renderLabTestAnswer(item, useReportWarning = false) {
+  const reportWarning = "檢驗報告需由醫師依個人症狀、病史、用藥、影像與其他檢查綜合判讀。若出現胸痛、呼吸困難、意識改變、嚴重出血、高燒不退、黑便、血尿或檢驗科通知危急值，請立即就醫或依醫療人員指示處理。";
+  const referenceNote = useReportWarning
+    ? "<br>參考值：請以檢驗報告單上的參考區間及院方檢驗項目查詢系統最新資料為準；不同檢驗方法、儀器、年齡與性別可能會影響參考區間。"
+    : "";
+  const warning = useReportWarning ? `<br><br>${reportWarning}` : "";
+  return `<strong>${item.name}（${item.code} / ${item.english}）</strong>：${item.meaning}${referenceNote}<br>檢體：${item.specimen}。空腹需求：${item.fasting}。報告時間：${item.turnaround}。${item.note ? `<br>注意：${item.note}` : ""}${warning}`;
+}
+
 function localAssistantReply(message) {
   const relatedTests = searchTests(message).slice(0, 3);
   const normalizedMessage = normalize(message);
@@ -1766,18 +1868,27 @@ function localAssistantReply(message) {
   const relatedScope = consultationScopes.find((item) =>
     item.keywords.some((keyword) => normalizedMessage.includes(normalize(keyword)))
   );
-  const relatedClinicalQa = findClinicalQa(message);
+  const qaCandidates = findQaCandidates(message);
+  const relatedClinicalQa = qaCandidates[0] || null;
   const specificTestMention = hasSpecificTestMention(message);
   const testRelatedIntent = hasTestRelatedIntent(message);
+  const personalMedicalJudgment = isPersonalMedicalJudgment(message);
   const safety = "提醒：AI 回答僅供衛教參考，不能取代醫師診斷、治療或個人報告判讀。";
+
+  if (isBloodServiceTimeQuestion(message)) {
+    return {
+      content: `抽血櫃檯服務時間：<br>星期一至五：上午 7:30～晚上 21:30 止。<br>星期六：上午 7:30～中午 12:00 止。<br><br>實驗室服務時間：<br>24 小時全年無休。<br><br><a href="https://www.cmu-hch.cmu.edu.tw/Department/Detail?depid=28" target="_blank" rel="noopener">開啟院方檢驗科頁面</a><br><br>${safety}`,
+      source: "網站資訊；中國醫藥大學新竹附設醫院檢驗科頁面；抽血櫃檯服務時間"
+    };
+  }
 
   if (relatedTests.length) {
     const list = relatedTests
-      .map((item) => `<strong>${item.name}（${item.code} / ${item.english}）</strong>：${item.meaning}<br>檢體：${item.specimen}。空腹需求：${item.fasting}。報告時間：${item.turnaround}。${item.note ? `<br>注意：${item.note}` : ""}`)
+      .map((item) => renderLabTestAnswer(item, personalMedicalJudgment))
       .join("<br><br>");
     return {
       content: `${list}<br><br><a href="http://211.21.176.82:8098/#/" target="_blank" rel="noopener">開啟檢驗項目查詢系統</a><br><br>${safety}`,
-      source: `檢驗項目查詢資料；相關項目：${relatedTests.map((item) => item.code || item.name).join("、")}`
+      source: `檢驗項目查詢資料；相關項目：${relatedTests.map((item) => item.code || item.name).join("、")}${personalMedicalJudgment ? "；報告判讀警語" : ""}`
     };
   }
 
@@ -1789,14 +1900,20 @@ function localAssistantReply(message) {
   }
 
   if (relatedClinicalQa) {
-    const qaSource = relatedClinicalQa.id.startsWith("LB")
-      ? "網站資訊；液態切片次世代定序癌症基因檢測 DM 病人版"
-      : relatedClinicalQa.id.startsWith("P")
-        ? "網站資訊；病人常問問題題庫"
-        : "網站資訊；抽血與檢體常見問題題庫";
+    if (qaCandidates.length > 1) {
+      const choices = qaCandidates
+        .map(
+          (item) => `<label class="qa-choice"><input type="checkbox" value="${item.id}"><span><strong>${item.question}</strong><small>${getQaSource(item)}；${item.id}</small></span></label>`
+        )
+        .join("");
+      return {
+        content: `找到幾個相近問題，請勾選想看的答案：<div class="qa-choice-list">${choices}</div><button class="qa-choice-submit" type="button">顯示勾選答案</button><small class="choice-hint">可複選；若都不是，請換一個更完整的關鍵字再問一次。</small>`,
+        source: "網站資訊；相似問題候選清單"
+      };
+    }
     return {
-      content: `<strong>${relatedClinicalQa.question}</strong><br>${formatAnswer(relatedClinicalQa.answer)}<br><br>${safety}`,
-      source: `${qaSource}；${relatedClinicalQa.id}`
+      content: renderQaContent(relatedClinicalQa, safety),
+      source: `${getQaSource(relatedClinicalQa)}；${relatedClinicalQa.id}`
     };
   }
 
@@ -1854,6 +1971,30 @@ document.querySelector("#clearSearch")?.addEventListener("click", () => {
   testSearch.focus();
 });
 document.querySelector("#reloadData")?.addEventListener("click", loadTests);
+
+chatMessages.addEventListener("click", (event) => {
+  const submitButton = event.target.closest(".qa-choice-submit");
+  if (!submitButton) return;
+
+  const messageBox = submitButton.closest(".message");
+  const selectedIds = [...messageBox.querySelectorAll(".qa-choice input:checked")].map((input) => input.value);
+  if (!selectedIds.length) {
+    const hint = messageBox.querySelector(".choice-hint");
+    if (hint) hint.textContent = "請先勾選至少一個想看的答案。";
+    return;
+  }
+
+  const safety = "提醒：AI 回答僅供衛教參考，不能取代醫師診斷、治療或個人報告判讀。";
+  const selectedItems = selectedIds
+    .map((id) => allQaItems.find((item) => item.id === id))
+    .filter(Boolean);
+  const content = selectedItems
+    .map((item) => `${renderQaContent(item, safety)}<small class="message-source">出處：${getQaSource(item)}；${item.id}</small>`)
+    .join('<hr class="answer-divider">');
+
+  messageBox.innerHTML = content;
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+});
 
 chatForm.addEventListener("submit", async (event) => {
   event.preventDefault();
