@@ -3618,21 +3618,46 @@ function containsTerm(text, term) {
 }
 
 function searchTests(query) {
-  const keyword = normalize(query);
+  const rawQuery = String(query || "");
+  const keyword = normalize(rawQuery);
+  const queryTerms = [
+    keyword,
+    ...(rawQuery.match(/[A-Za-z][A-Za-z0-9.+-]{1,}/g) || []).map(normalize)
+  ].filter(Boolean);
   const sourceTests = tests.length ? tests : fallbackTests;
   if (!keyword) return sourceTests.slice(0, 5);
-  return sourceTests.filter((item) => {
-    const haystack = [
+  return sourceTests
+    .map((item) => {
+      const exactFields = [item.code, item.abbreviation, item.name, item.english]
+        .map(normalize)
+        .filter(Boolean);
+      const haystack = [
       item.code,
       item.name,
       item.english,
       item.aliases,
-      item.meaning
+      item.meaning,
+      item.abbreviation,
+      item.category,
+      item.related_system,
+      item.clinical_use,
+      item.keywords,
+      item.note,
+      item.source
     ]
       .map(normalize)
       .join("");
-    return haystack.includes(keyword);
-  });
+      let score = 0;
+      queryTerms.forEach((term) => {
+        if (exactFields.includes(term)) score += 100;
+        if (exactFields.some((field) => field.startsWith(term))) score += 35;
+        if (haystack.includes(term)) score += Math.min(30, Math.max(8, term.length));
+      });
+      return { item, score };
+    })
+    .filter((entry) => entry.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .map((entry) => entry.item);
 }
 
 function detectTestListTopic(message) {
@@ -4109,6 +4134,13 @@ function buildLabTestReply(relatedTests, personalMedicalJudgment, safety) {
   };
 }
 
+function buildTestSearchFallbackReply(message, safety) {
+  return {
+    content: `檢驗項目查詢請到 <a href="http://211.21.176.82:8098/#/" target="_blank" rel="noopener">http://211.21.176.82:8098/#/</a> 進行查詢<br><br>${safety}`,
+    source: "檢驗項目查詢系統"
+  };
+}
+
 function localAssistantReply(message, consultMode = "education") {
   const relatedTests = (findMentionedTests(message).length ? findMentionedTests(message) : searchTests(message)).slice(0, 3);
   const normalizedMessage = normalize(message);
@@ -4135,6 +4167,12 @@ function localAssistantReply(message, consultMode = "education") {
       content: `抽血櫃檯服務時間：<br>星期一至五：上午7:30～晚上21:30止。<br>星期六：上午7:30～中午12:00止。<br><br><a href="https://www.cmu-hch.cmu.edu.tw/Department/Detail?depid=28" target="_blank" rel="noopener">開啟院方檢驗科頁面</a><br><br>${safety}`,
       source: "使用者更新題庫；抽血櫃檯服務時間；PF31"
     };
+  }
+
+  if (consultMode === "test") {
+    return relatedTests.length
+      ? buildLabTestReply(relatedTests, personalMedicalJudgment, safety)
+      : buildTestSearchFallbackReply(message, safety);
   }
 
   if (isMedicationTimingQuestion(message) && relatedClinicalQa) {
