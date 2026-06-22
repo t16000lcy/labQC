@@ -1298,7 +1298,7 @@ const faqItems = [
   {
     category: "blood",
     question: "抽血櫃檯服務時間是什麼時候？",
-    answer: "抽血櫃檯服務時間：<br>星期一至五：上午 7:30～晚上 21:30 止。<br>星期六：上午 7:30～中午 12:00 止。<br><br>實驗室服務時間：<br>24 小時全年無休。"
+    answer: "抽血櫃檯服務時間：<br>星期一至五：上午7:30～晚上21:30止。<br>星期六：上午7:30～中午12:00止。"
   },
   {
     category: "report",
@@ -1418,7 +1418,7 @@ const fallbackTests = [
 const consultationScopes = [
   {
     keywords: ["抽血時間", "服務時間", "幾點", "週六", "星期六"],
-    answer: "抽血櫃檯服務時間：<br>星期一至五：上午 7:30～晚上 21:30 止。<br>星期六：上午 7:30～中午 12:00 止。<br><br>實驗室服務時間：<br>24 小時全年無休。"
+    answer: "抽血櫃檯服務時間：<br>星期一至五：上午7:30～晚上21:30止。<br>星期六：上午7:30～中午12:00止。"
   },
   {
     keywords: ["諮詢", "電話", "分機", "聯絡"],
@@ -1686,6 +1686,16 @@ const patientQaItems = [
     "id": "PF30",
     "question": "腫瘤標記高是不是癌症？",
     "answer": "不一定。腫瘤標記可能由癌細胞產生，也可能因良性疾病、發炎或其他身體狀況上升。腫瘤標記通常用於輔助診斷、追蹤治療反應或復發風險，不能單獨診斷或排除癌症。"
+  },
+  {
+    "id": "PF31",
+    "question": "抽血櫃檯服務時間",
+    "answer": "星期一至五：上午7:30～晚上21:30止。\n星期六：上午7:30～中午12:00止。"
+  },
+  {
+    "id": "PF32",
+    "question": "115年國定假日抽血櫃台服務時間",
+    "answer": "115/9/25 (五) 中秋節 全日暫停抽血服務\n115/9/28 (一) 教師節 上午7:30～下午17:00止 (晚上暫停抽血服務)\n115/10/9 (五) 國慶日補假 上午7:30～下午17:00止 (晚上暫停抽血服務)\n115/10/10 (六) 國慶日上午7:30～中午12:00止。\n115/10/25 (日) 光復日 無門診，無抽血服務\n115/10/26 (一) 光復日補假 上午7:30～下午17:00止 (晚上暫停抽血服務)\n115/12/25 (五) 行憲紀念日上午7:30～下午17:00止 (晚上暫停抽血服務)"
   },
   {
     "id": "Q1",
@@ -3792,6 +3802,9 @@ const qaKeywordRules = [
   { pattern: /77\s*(cancer\s*)?panel|77\s*基因/, ids: ["LB26"] },
   { pattern: /197\s*(cancer\s*)?panel|197\s*基因/, ids: ["LB27"] },
   { pattern: /瘀青|血腫/, ids: ["PF6", "Q2", "Q1"] },
+  { pattern: /(糖尿病|血糖|降血糖|糖尿病藥|血糖藥).*(藥|吃藥|服藥|停藥|用藥|空腹|抽血)|(藥|吃藥|服藥|停藥|用藥|空腹|抽血).*(糖尿病|血糖|降血糖|糖尿病藥|血糖藥)/, ids: ["MQ015", "PF4"] },
+  { pattern: /(高血壓|血壓藥|降血壓).*(藥|吃藥|服藥|停藥|用藥|空腹|抽血)|(藥|吃藥|服藥|停藥|用藥|空腹|抽血).*(高血壓|血壓藥|降血壓)/, ids: ["MQ016", "PF4"] },
+  { pattern: /(空腹|抽血).*(藥|吃藥|服藥|停藥|用藥)|(藥|吃藥|服藥|停藥|用藥).*(空腹|抽血)/, ids: ["MQ015", "MQ016", "PF4"] },
   { pattern: /空腹|禁食|喝水/, ids: ["PF2", "PF3"] },
   { pattern: /抽不到血|不好抽|難抽/, ids: ["Q3"] },
   { pattern: /暈針|昏倒|暈眩|頭暈/, ids: ["PF7", "Q4"] },
@@ -3890,6 +3903,22 @@ function isBloodServiceTimeQuestion(message) {
   return serviceTimeTerms.some((term) => normalizedMessage.includes(normalize(term)));
 }
 
+function isHolidayBloodServiceTimeQuestion(message) {
+  const normalizedMessage = normalize(message);
+  const holidayTerms = ["國定假日", "假日", "中秋", "教師節", "國慶", "國慶日", "光復", "光復日", "行憲", "行憲紀念日", "115年"];
+  const bloodServiceTerms = ["抽血", "櫃檯", "櫃台", "服務", "時間"];
+  return holidayTerms.some((term) => normalizedMessage.includes(normalize(term))) &&
+    bloodServiceTerms.some((term) => normalizedMessage.includes(normalize(term)));
+}
+
+function isMedicationTimingQuestion(message) {
+  const normalizedMessage = normalize(message);
+  const contextTerms = ["抽血", "空腹", "禁食", "當天"];
+  const medicationTerms = ["藥", "吃藥", "服藥", "停藥", "用藥", "糖尿病藥", "血糖藥", "降血糖藥", "高血壓藥", "血壓藥", "降血壓藥"];
+  return contextTerms.some((term) => normalizedMessage.includes(normalize(term))) &&
+    medicationTerms.some((term) => normalizedMessage.includes(normalize(term)));
+}
+
 function hasSpecificTestMention(message) {
   const normalizedMessage = normalize(message);
   const specificTerms = [
@@ -3971,10 +4000,35 @@ function localAssistantReply(message) {
   const personalMedicalJudgment = isPersonalMedicalJudgment(message) || (relatedTests.length > 0 && isReportConcernQuestion(message));
   const safety = "提醒：AI 回答僅供衛教參考，不能取代醫師診斷、治療或個人報告判讀。";
 
+  if (isHolidayBloodServiceTimeQuestion(message)) {
+    return {
+      content: `115年國定假日抽血櫃台服務時間：<br>115/9/25 (五) 中秋節 全日暫停抽血服務<br>115/9/28 (一) 教師節 上午7:30～下午17:00止 (晚上暫停抽血服務)<br>115/10/9 (五) 國慶日補假 上午7:30～下午17:00止 (晚上暫停抽血服務)<br>115/10/10 (六) 國慶日上午7:30～中午12:00止。<br>115/10/25 (日) 光復日 無門診，無抽血服務<br>115/10/26 (一) 光復日補假 上午7:30～下午17:00止 (晚上暫停抽血服務)<br>115/12/25 (五) 行憲紀念日上午7:30～下午17:00止 (晚上暫停抽血服務)<br><br><a href="https://www.cmu-hch.cmu.edu.tw/Department/Detail?depid=28" target="_blank" rel="noopener">開啟院方檢驗科頁面</a><br><br>${safety}`,
+      source: "使用者更新題庫；115年國定假日抽血櫃台服務時間；PF32"
+    };
+  }
+
   if (isBloodServiceTimeQuestion(message)) {
     return {
-      content: `抽血櫃檯服務時間：<br>星期一至五：上午 7:30～晚上 21:30 止。<br>星期六：上午 7:30～中午 12:00 止。<br><br>實驗室服務時間：<br>24 小時全年無休。<br><br><a href="https://www.cmu-hch.cmu.edu.tw/Department/Detail?depid=28" target="_blank" rel="noopener">開啟院方檢驗科頁面</a><br><br>${safety}`,
-      source: "網站資訊；中國醫藥大學新竹附設醫院檢驗科頁面；抽血櫃檯服務時間"
+      content: `抽血櫃檯服務時間：<br>星期一至五：上午7:30～晚上21:30止。<br>星期六：上午7:30～中午12:00止。<br><br><a href="https://www.cmu-hch.cmu.edu.tw/Department/Detail?depid=28" target="_blank" rel="noopener">開啟院方檢驗科頁面</a><br><br>${safety}`,
+      source: "使用者更新題庫；抽血櫃檯服務時間；PF31"
+    };
+  }
+
+  if (isMedicationTimingQuestion(message) && relatedClinicalQa) {
+    if (qaCandidates.length > 1) {
+      const choices = qaCandidates
+        .map(
+          (item) => `<label class="qa-choice"><input type="checkbox" value="${item.id}"><span><strong>${item.question}</strong><small>${getQaSource(item)}；${item.id}</small></span></label>`
+        )
+        .join("");
+      return {
+        content: `找到幾個相近問題，請勾選想看的答案：<div class="qa-choice-list">${choices}</div><button class="qa-choice-submit" type="button">顯示勾選答案</button><small class="choice-hint">可複選；若都不是，請換一個更完整的關鍵字再問一次。</small>`,
+        source: "網站資訊；用藥時機相似問題候選清單"
+      };
+    }
+    return {
+      content: renderQaContent(relatedClinicalQa, safety),
+      source: `${getQaSource(relatedClinicalQa)}；${relatedClinicalQa.id}`
     };
   }
 
