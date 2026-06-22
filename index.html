@@ -613,11 +613,59 @@ input {
   background: rgba(255, 255, 255, 0.22);
 }
 
+.consult-mode {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 12px 16px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: #eef6f5;
+}
+
+.consult-mode legend {
+  grid-column: 1 / -1;
+  margin-bottom: 2px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.consult-mode label {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 8px;
+  align-items: center;
+  min-height: 44px;
+  padding: 9px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  background: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.45;
+  cursor: pointer;
+}
+
+.consult-mode label.selected {
+  border-color: rgba(47, 97, 100, 0.55);
+  background: rgba(47, 97, 100, 0.1);
+  box-shadow: inset 0 0 0 1px rgba(47, 97, 100, 0.12);
+}
+
+.consult-mode input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--teal);
+}
+
 .chat-messages {
   display: grid;
   align-content: start;
   gap: 12px;
-  height: clamp(460px, 62vh, 680px);
+  height: clamp(430px, 58vh, 650px);
   padding: 16px;
   overflow: auto;
   background: #f4f8f8;
@@ -1062,6 +1110,16 @@ input {
     font-size: 12px;
   }
 
+  .consult-mode {
+    grid-template-columns: 1fr;
+    padding: 10px 12px;
+  }
+
+  .consult-mode label {
+    min-height: 42px;
+    font-size: 13px;
+  }
+
   .chat-messages {
     height: clamp(420px, 66vh, 600px);
     padding: 12px;
@@ -1216,6 +1274,17 @@ input {
               <span class="status-dot">RAG Ready</span>
             </div>
           </div>
+          <fieldset class="consult-mode" aria-label="請先選擇諮詢範圍">
+            <legend>請先選擇諮詢範圍</legend>
+            <label class="selected">
+              <input type="checkbox" name="consultMode" value="education" checked />
+              <span>抽血時間、空腹需求、採檢容器、檢體保存</span>
+            </label>
+            <label>
+              <input type="checkbox" name="consultMode" value="test" />
+              <span>一般檢驗項目意義</span>
+            </label>
+          </fieldset>
           <div id="chatMessages" class="chat-messages"></div>
           <form id="chatForm" class="chat-form">
             <input id="chatInput" name="message" autocomplete="off" placeholder="請輸入檢驗或抽血問題" />
@@ -3475,7 +3544,32 @@ const testResults = document.querySelector("#testResults");
 const chatMessages = document.querySelector("#chatMessages");
 const chatForm = document.querySelector("#chatForm");
 const chatInput = document.querySelector("#chatInput");
+const consultModeInputs = [...document.querySelectorAll('input[name="consultMode"]')];
 const leaveModal = document.querySelector("#leaveModal");
+
+function getConsultMode() {
+  return consultModeInputs.find((input) => input.checked)?.value || "education";
+}
+
+function updateConsultModeUi() {
+  consultModeInputs.forEach((input) => {
+    input.closest("label")?.classList.toggle("selected", input.checked);
+  });
+}
+
+consultModeInputs.forEach((input) => {
+  input.addEventListener("change", () => {
+    if (input.checked) {
+      consultModeInputs.forEach((item) => {
+        if (item !== input) item.checked = false;
+      });
+    }
+    if (!consultModeInputs.some((item) => item.checked)) input.checked = true;
+    updateConsultModeUi();
+  });
+});
+
+updateConsultModeUi();
 
 function seedAssistantGreeting() {
   addMessage(
@@ -3986,7 +4080,36 @@ function renderLabTestAnswer(item, useReportWarning = false) {
   return `<strong>${item.name}（${item.code} / ${item.english}）</strong>：${item.meaning}${referenceNote}<br>檢體：${item.specimen}。空腹需求：${item.fasting}。報告時間：${item.turnaround}。${item.note ? `<br>注意：${item.note}` : ""}${warning}`;
 }
 
-function localAssistantReply(message) {
+function buildQaChoiceReply(qaCandidates, relatedClinicalQa, safety, sourceLabel = "網站資訊；相似問題候選清單") {
+  if (!relatedClinicalQa) return null;
+  if (qaCandidates.length > 1) {
+    const choices = qaCandidates
+      .map(
+        (item) => `<label class="qa-choice"><input type="checkbox" value="${item.id}"><span><strong>${item.question}</strong><small>${getQaSource(item)}；${item.id}</small></span></label>`
+      )
+      .join("");
+    return {
+      content: `找到幾個相近問題，請勾選想看的答案：<div class="qa-choice-list">${choices}</div><button class="qa-choice-submit" type="button">顯示勾選答案</button><small class="choice-hint">可複選；若都不是，請換一個更完整的關鍵字再問一次。</small>`,
+      source: sourceLabel
+    };
+  }
+  return {
+    content: renderQaContent(relatedClinicalQa, safety),
+    source: `${getQaSource(relatedClinicalQa)}；${relatedClinicalQa.id}`
+  };
+}
+
+function buildLabTestReply(relatedTests, personalMedicalJudgment, safety) {
+  const list = relatedTests
+    .map((item) => renderLabTestAnswer(item, personalMedicalJudgment))
+    .join("<br><br>");
+  return {
+    content: `${list}<br><br><a href="http://211.21.176.82:8098/#/" target="_blank" rel="noopener">開啟檢驗項目查詢系統</a><br><br>${safety}`,
+    source: `檢驗項目查詢資料；相關項目：${relatedTests.map((item) => item.code || item.name).join("、")}${personalMedicalJudgment ? "；報告判讀警語" : ""}`
+  };
+}
+
+function localAssistantReply(message, consultMode = "education") {
   const relatedTests = (findMentionedTests(message).length ? findMentionedTests(message) : searchTests(message)).slice(0, 3);
   const normalizedMessage = normalize(message);
   const relatedFaq = findFaqAnswer(message);
@@ -4030,6 +4153,14 @@ function localAssistantReply(message) {
       content: renderQaContent(relatedClinicalQa, safety),
       source: `${getQaSource(relatedClinicalQa)}；${relatedClinicalQa.id}`
     };
+  }
+
+  if (consultMode === "education" && relatedClinicalQa) {
+    return buildQaChoiceReply(qaCandidates, relatedClinicalQa, safety, "網站資訊；題庫優先檢索");
+  }
+
+  if (consultMode === "test" && relatedTests.length) {
+    return buildLabTestReply(relatedTests, personalMedicalJudgment, safety);
   }
 
   const functionTopic = detectFunctionGroupTopic(message);
@@ -4125,18 +4256,18 @@ function localAssistantReply(message) {
   };
 }
 
-async function askAssistant(message) {
+async function askAssistant(message, consultMode = getConsultMode()) {
   if (CHAT_API_ENDPOINT) {
     const response = await fetch(CHAT_API_ENDPOINT, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message })
+      body: JSON.stringify({ message, mode: consultMode })
     });
     if (!response.ok) throw new Error("Chat API failed");
     return response.json();
   }
 
-  return localAssistantReply(message);
+  return localAssistantReply(message, consultMode);
 }
 
 document.querySelectorAll("[data-faq-filter]").forEach((button) => {
@@ -4188,6 +4319,7 @@ chatForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   const message = chatInput.value.trim();
   if (!message) return;
+  const consultMode = getConsultMode();
 
   addMessage("user", message);
   chatInput.value = "";
@@ -4195,7 +4327,7 @@ chatForm.addEventListener("submit", async (event) => {
   const pending = chatMessages.lastElementChild;
 
   try {
-    const reply = await askAssistant(message);
+    const reply = await askAssistant(message, consultMode);
     pending.innerHTML = `${reply.content || reply.answer || "目前無法取得回覆。"}${reply.source ? `<small class="message-source">出處：${reply.source}</small>` : ""}`;
     pending.classList.toggle("table-message", Boolean(pending.querySelector(".answer-table")));
     pending.scrollIntoView({ block: "start" });
