@@ -5841,7 +5841,8 @@ const patientQaItems = [
   {
     "id": "MQ078",
     "question": "檢驗單 (或稱抽血單 )遺失怎麼辦？",
-    "answer": "可於預定的時間內，直接拿健保卡或身分證至抽血櫃台抽血檢驗。"
+    "answer": "可於預定的時間內，直接拿健保卡或身分證至抽血櫃台抽血檢驗。",
+    "keywords": "檢驗單 抽血單 遺失 健保卡 身分證"
   },
   {
     "id": "MQ079",
@@ -7499,6 +7500,7 @@ function tokenizeQuestion(value) {
 }
 
 const qaKeywordRules = [
+  { pattern: /(抽血單|檢驗單).*(遺失|不見|弄丟)|(遺失|不見|弄丟).*(抽血單|檢驗單)|抽血單|檢驗單遺失/, ids: ["MQ078"] },
   { pattern: /ctdna/, ids: ["LB2"] },
   { pattern: /(液態切片|液體切片|ngs|次世代定序|panel).*(貴|昂貴)|怎麼那麼貴/, ids: ["LB29"] },
   { pattern: /(液態切片|液體切片|ngs|次世代定序|panel).*(費用|價格|多少錢)|(費用|價格|多少錢).*(液態切片|液體切片|ngs|次世代定序|panel)/, ids: ["LB28"] },
@@ -7555,7 +7557,7 @@ function findQaCandidates(message) {
 
   directIds.forEach((id, index) => {
     const item = allQaItems.find((entry) => entry.id === id);
-    if (item) candidateMap.set(item.id, { item, score: 20 - index });
+    if (item) candidateMap.set(item.id, { item, score: 100 - index });
   });
 
   allQaItems.forEach((item) => {
