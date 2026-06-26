@@ -1607,166 +1607,6 @@ const clinicalQaItems = [
 
 const patientQaItems = [
   {
-    "id": "PF1",
-    "question": "為什麼醫師要我抽血？",
-    "answer": "抽血可以幫助醫師了解血球、肝腎功能、血糖、血脂、發炎指標、荷爾蒙或感染狀況等。檢驗結果不是單獨診斷，需配合症狀與醫師評估。"
-  },
-  {
-    "id": "PF2",
-    "question": "抽血一定要空腹嗎？",
-    "answer": "不一定。血糖、血脂、部分生化檢查可能需要空腹；一般血球、甲狀腺功能、HbA1c 多數情況不一定需要空腹。是否空腹應依醫囑或檢驗單說明。空腹通常是為避免食物成分影響某些檢驗結果。"
-  },
-  {
-    "id": "PF3",
-    "question": "空腹可以喝水嗎？",
-    "answer": "多數空腹抽血可以喝白開水，但不要喝含糖飲料、咖啡、茶、牛奶或酒精。水分不足反而可能讓抽血較困難。"
-  },
-  {
-    "id": "PF4",
-    "question": "抽血前藥物要停嗎？",
-    "answer": "不要自行停藥。降血糖藥、抗凝血藥、甲狀腺藥、類固醇、抗生素等都可能影響判讀，但是否停藥需由醫師決定。"
-  },
-  {
-    "id": "PF5",
-    "question": "抽血前可以運動嗎？",
-    "answer": "抽血前建議避免劇烈運動，因為運動可能影響部分檢驗，如肌肉酵素、血糖、白血球或發炎相關數值。一般散步通常影響較小。"
-  },
-  {
-    "id": "PF6",
-    "question": "抽血後瘀青正常嗎？",
-    "answer": "少量瘀青常見，多與血管滲血、按壓不足、血管較細或正在使用抗凝血藥有關。抽血後請加壓數分鐘，當天避免提重物。若瘀青快速擴大、劇痛、麻木或持續流血，應回診或聯絡醫療人員。"
-  },
-  {
-    "id": "PF7",
-    "question": "抽血後頭暈怎麼辦？",
-    "answer": "可能與緊張、空腹、血壓變化或暈針有關。請立即坐下或躺下休息，告知檢驗人員。曾經暈針者，抽血前可先告知，必要時採坐臥姿勢抽血。"
-  },
-  {
-    "id": "PF8",
-    "question": "為什麼一次要抽好幾管血？",
-    "answer": "不同檢驗需要不同抗凝劑或不同檢體條件，因此會分裝在不同採血管。看起來管數較多，但每管血量通常不多，目的是確保結果正確。"
-  },
-  {
-    "id": "PF9",
-    "question": "同一天在不同醫院檢驗，數值為什麼不一樣？",
-    "answer": "可能與檢驗方法、儀器、試劑、參考區間、抽血時間、空腹狀態、姿勢、檢體保存與個人生理波動有關。建議追蹤同一項目時，盡量在同一院所、相近條件下比較。"
-  },
-  {
-    "id": "PF10",
-    "question": "報告多久會出來？",
-    "answer": "一般血球、生化檢查多數可較快完成；細菌培養、特殊免疫、分子檢測或外送檢驗可能需要較久。實際時間以院內流程與檢驗項目為準。"
-  },
-  {
-    "id": "PF11",
-    "question": "報告有紅字就是有病嗎？",
-    "answer": "不一定。紅字代表超出該實驗室參考區間，但可能是輕微波動、年齡差異、懷孕、藥物、飲食或暫時性狀態造成。仍需由醫師判讀是否有臨床意義。"
-  },
-  {
-    "id": "PF12",
-    "question": "參考值為什麼每家醫院不同？",
-    "answer": "參考值會受到檢驗方法、儀器、試劑、族群、年齡與性別影響。比較報告時應看同一張報告上的參考區間，不宜只看單一數字。"
-  },
-  {
-    "id": "PF13",
-    "question": "CBC / 血球檢查是在看什麼？",
-    "answer": "CBC 主要測量白血球、紅血球、血紅素、血比容、血小板等，可協助評估貧血、感染、出血風險或血液相關問題。"
-  },
-  {
-    "id": "PF14",
-    "question": "白血球高是不是感染？",
-    "answer": "白血球高可能與感染、發炎、壓力、藥物、抽菸或其他疾病有關；白血球低也可能與病毒感染、藥物、骨髓功能或免疫狀況有關。需搭配分類、CRP、症狀與醫師評估。"
-  },
-  {
-    "id": "PF15",
-    "question": "血紅素低是不是貧血？",
-    "answer": "血紅素低常提示貧血，但原因很多，包括缺鐵、慢性疾病、腎臟病、地中海型貧血、出血或營養缺乏等。通常需進一步看 MCV、鐵蛋白、B12、葉酸或其他檢查。"
-  },
-  {
-    "id": "PF16",
-    "question": "血小板低會不會很危險？",
-    "answer": "血小板與止血有關。輕微偏低不一定有立即危險，但若明顯偏低、合併瘀青、流鼻血、牙齦出血、血尿或黑便，應儘速回診。"
-  },
-  {
-    "id": "PF17",
-    "question": "飯前血糖、飯後血糖、HbA1c 差在哪？",
-    "answer": "飯前血糖反映當下空腹狀態，飯後血糖反映餐後血糖變化；HbA1c 反映過去約 2–3 個月平均血糖，通常不需要空腹。"
-  },
-  {
-    "id": "PF18",
-    "question": "HbA1c 正常就代表沒有糖尿病嗎？",
-    "answer": "HbA1c 是重要指標，但仍需搭配血糖、症狀與醫師判斷。某些貧血、溶血、輸血、腎臟病或血紅素變異可能影響 HbA1c 判讀。"
-  },
-  {
-    "id": "PF19",
-    "question": "血脂檢查一定要空腹嗎？",
-    "answer": "部分血脂檢查，尤其三酸甘油脂或某些 LDL 計算，可能需要空腹。MedlinePlus 提到膽固醇檢查有時需空腹 9–12 小時；CDC 也建議應詢問醫師如何準備。"
-  },
-  {
-    "id": "PF20",
-    "question": "肝功能 AST、ALT 高代表肝炎嗎？",
-    "answer": "AST、ALT 升高代表可能有肝細胞受損，但原因不只肝炎，也可能與脂肪肝、酒精、藥物、肌肉損傷或其他疾病有關。肝功能檢查本身通常不能單獨診斷特定疾病。"
-  },
-  {
-    "id": "PF21",
-    "question": "膽紅素高是什麼意思？",
-    "answer": "膽紅素高可能與黃疸、肝臟、膽道或紅血球破壞增加有關。若合併眼白變黃、茶色尿、灰白便、腹痛或發燒，應儘快就醫。"
-  },
-  {
-    "id": "PF22",
-    "question": "腎功能 Creatinine / eGFR 是什麼？",
-    "answer": "Creatinine 是肌酸酐，常用來評估腎臟排除廢物的能力；eGFR 是估算腎絲球過濾率，比單看肌酸酐更能反映腎功能。"
-  },
-  {
-    "id": "PF23",
-    "question": "尿液檢查可以看出什麼？",
-    "answer": "尿液檢查常用來評估泌尿道感染、腎臟問題、糖尿病或其他代謝狀況，內容可能包含尿蛋白、尿糖、潛血、白血球、亞硝酸鹽與尿沉渣等。"
-  },
-  {
-    "id": "PF24",
-    "question": "尿液要怎麼留才正確？",
-    "answer": "多數尿液檢查會建議留「中段尿」：先清潔，再先排掉前段尿，接中間尿液到容器。這樣可減少皮膚或外陰部細菌污染檢體。"
-  },
-  {
-    "id": "PF25",
-    "question": "月經來可以驗尿嗎？",
-    "answer": "若非急迫檢查，建議避開月經期間，因為經血可能造成尿潛血或尿沉渣判讀困難。若醫師仍要求檢查，請主動告知目前正在生理期。"
-  },
-  {
-    "id": "PF26",
-    "question": "尿蛋白或尿潛血陽性嚴重嗎？",
-    "answer": "不一定。可能與感染、結石、運動、月經污染、腎臟疾病或其他原因有關。若反覆陽性或合併水腫、高血壓、泡泡尿、血尿，需回診追蹤。"
-  },
-  {
-    "id": "PF27",
-    "question": "糞便潛血陽性是不是大腸癌？",
-    "answer": "不一定。糞便潛血代表糞便中偵測到血液，可能來自痔瘡、息肉、潰瘍、發炎或腫瘤等。陽性結果通常需要進一步檢查找原因，不能單靠潛血診斷癌症。"
-  },
-  {
-    "id": "PF28",
-    "question": "糞便檢體怎麼採比較好？",
-    "answer": "依採檢盒說明採集，避免混入尿液、水或清潔劑。若是糞便潛血、寄生蟲、培養或腸胃炎檢查，採集方式與保存條件可能不同，請依檢驗單或檢驗科指示。"
-  },
-  {
-    "id": "PF29",
-    "question": "CRP / ESR 高代表什麼？",
-    "answer": "CRP 與 ESR 都是發炎相關指標。CRP 可反映體內發炎程度，但不是特異性檢查，無法單獨指出發炎位置或原因；需搭配症狀、CBC、影像或其他檢查判讀。"
-  },
-  {
-    "id": "PF30",
-    "question": "腫瘤標記高是不是癌症？",
-    "answer": "不一定。腫瘤標記可能由癌細胞產生，也可能因良性疾病、發炎或其他身體狀況上升。腫瘤標記通常用於輔助診斷、追蹤治療反應或復發風險，不能單獨診斷或排除癌症。"
-  },
-  {
-    "id": "PF31",
-    "question": "抽血櫃檯服務時間",
-    "answer": "星期一至五：上午7:30～晚上21:30止。\n星期六：上午7:30～中午12:00止。"
-  },
-  {
-    "id": "PF32",
-    "question": "115年國定假日抽血櫃台服務時間",
-    "answer": "115/9/25 (五) 中秋節 全日暫停抽血服務\n115/9/28 (一) 教師節 上午7:30～下午17:00止 (晚上暫停抽血服務)\n115/10/9 (五) 國慶日補假 上午7:30～下午17:00止 (晚上暫停抽血服務)\n115/10/10 (六) 國慶日上午7:30～中午12:00止。\n115/10/25 (日) 光復日 無門診，無抽血服務\n115/10/26 (一) 光復日補假 上午7:30～下午17:00止 (晚上暫停抽血服務)\n115/12/25 (五) 行憲紀念日上午7:30～下午17:00止 (晚上暫停抽血服務)"
-  },
-  {
     "id": "Q1",
     "question": "為甚麼會有血腫瘀青的現象？",
     "answer": "臨床上常遇見有病人反應抽血部位有血腫之現象，常見原因如下:\n1. 穿刺太淺\n2. 穿破血管\n3. 抽血時針頭晃動過大\n4. 止血帶繫綁距離太小\n5. 止血及按壓時間不足\n為避免血腫瘀青的現象發生，除抽血時應自行注意外，應叮嚀病人按壓時間及方式。建議採血後用乾淨無菌棉球或紗布墊覆蓋於針扎傷口上告知病患手伸直，稍加壓力於抽血點至少5分鐘，不可搓揉以免瘀血，若凝血較差者或使用抗凝固劑和抽動脈血者告知病患壓緊患處15分鐘以上直至無血液滲出為止，若為嬰兒則幫其貼上透氣膠帶並告知家屬按壓穿刺處5分鐘以上。"
@@ -5454,6 +5294,172 @@ const patientQaItems = [
     "keywords": "回診準備,用藥,家族史,舊報告"
   },
   {
+    "id": "PF1",
+    "question": "為什麼醫師要我抽血？",
+    "answer": "抽血可以幫助醫師了解血球、肝腎功能、血糖、血脂、發炎指標、荷爾蒙或感染狀況等。檢驗結果不是單獨診斷，需配合症狀與醫師評估。"
+  },
+  {
+    "id": "PF2",
+    "question": "抽血一定要空腹嗎？",
+    "answer": "不一定。血糖、血脂、部分生化檢查可能需要空腹；一般血球、甲狀腺功能、HbA1c 多數情況不一定需要空腹。是否空腹應依醫囑或檢驗單說明。空腹通常是為避免食物成分影響某些檢驗結果。"
+  },
+  {
+    "id": "PF3",
+    "question": "空腹可以喝水嗎？",
+    "answer": "多數空腹抽血可以喝白開水，但不要喝含糖飲料、咖啡、茶、牛奶或酒精。水分不足反而可能讓抽血較困難。"
+  },
+  {
+    "id": "PF4",
+    "question": "抽血前藥物要停嗎？",
+    "answer": "不要自行停藥。降血糖藥、抗凝血藥、甲狀腺藥、類固醇、抗生素等都可能影響判讀，但是否停藥需由醫師決定。"
+  },
+  {
+    "id": "PF5",
+    "question": "抽血前可以運動嗎？",
+    "answer": "抽血前建議避免劇烈運動，因為運動可能影響部分檢驗，如肌肉酵素、血糖、白血球或發炎相關數值。一般散步通常影響較小。"
+  },
+  {
+    "id": "PF6",
+    "question": "抽血後瘀青正常嗎？",
+    "answer": "少量瘀青常見，多與血管滲血、按壓不足、血管較細或正在使用抗凝血藥有關。抽血後請加壓數分鐘，當天避免提重物。若瘀青快速擴大、劇痛、麻木或持續流血，應回診或聯絡醫療人員。"
+  },
+  {
+    "id": "PF7",
+    "question": "抽血後頭暈怎麼辦？",
+    "answer": "可能與緊張、空腹、血壓變化或暈針有關。請立即坐下或躺下休息，告知檢驗人員。曾經暈針者，抽血前可先告知，必要時採坐臥姿勢抽血。"
+  },
+  {
+    "id": "PF8",
+    "question": "為什麼一次要抽好幾管血？",
+    "answer": "不同檢驗需要不同抗凝劑或不同檢體條件，因此會分裝在不同採血管。看起來管數較多，但每管血量通常不多，目的是確保結果正確。"
+  },
+  {
+    "id": "PF9",
+    "question": "同一天在不同醫院檢驗，數值為什麼不一樣？",
+    "answer": "可能與檢驗方法、儀器、試劑、參考區間、抽血時間、空腹狀態、姿勢、檢體保存與個人生理波動有關。建議追蹤同一項目時，盡量在同一院所、相近條件下比較。"
+  },
+  {
+    "id": "PF10",
+    "question": "報告多久會出來？",
+    "answer": "一般血球、生化檢查多數可較快完成；細菌培養、特殊免疫、分子檢測或外送檢驗可能需要較久。實際時間以院內流程與檢驗項目為準。"
+  },
+  {
+    "id": "PF11",
+    "question": "報告有紅字就是有病嗎？",
+    "answer": "不一定。紅字代表超出該實驗室參考區間，但可能是輕微波動、年齡差異、懷孕、藥物、飲食或暫時性狀態造成。仍需由醫師判讀是否有臨床意義。"
+  },
+  {
+    "id": "PF12",
+    "question": "參考值為什麼每家醫院不同？",
+    "answer": "參考值會受到檢驗方法、儀器、試劑、族群、年齡與性別影響。比較報告時應看同一張報告上的參考區間，不宜只看單一數字。"
+  },
+  {
+    "id": "PF13",
+    "question": "CBC / 血球檢查是在看什麼？",
+    "answer": "CBC 主要測量白血球、紅血球、血紅素、血比容、血小板等，可協助評估貧血、感染、出血風險或血液相關問題。"
+  },
+  {
+    "id": "PF14",
+    "question": "白血球高是不是感染？",
+    "answer": "白血球高可能與感染、發炎、壓力、藥物、抽菸或其他疾病有關；白血球低也可能與病毒感染、藥物、骨髓功能或免疫狀況有關。需搭配分類、CRP、症狀與醫師評估。"
+  },
+  {
+    "id": "PF15",
+    "question": "血紅素低是不是貧血？",
+    "answer": "血紅素低常提示貧血，但原因很多，包括缺鐵、慢性疾病、腎臟病、地中海型貧血、出血或營養缺乏等。通常需進一步看 MCV、鐵蛋白、B12、葉酸或其他檢查。"
+  },
+  {
+    "id": "PF16",
+    "question": "血小板低會不會很危險？",
+    "answer": "血小板與止血有關。輕微偏低不一定有立即危險，但若明顯偏低、合併瘀青、流鼻血、牙齦出血、血尿或黑便，應儘速回診。"
+  },
+  {
+    "id": "PF17",
+    "question": "飯前血糖、飯後血糖、HbA1c 差在哪？",
+    "answer": "飯前血糖反映當下空腹狀態，飯後血糖反映餐後血糖變化；HbA1c 反映過去約 2–3 個月平均血糖，通常不需要空腹。"
+  },
+  {
+    "id": "PF18",
+    "question": "HbA1c 正常就代表沒有糖尿病嗎？",
+    "answer": "HbA1c 是重要指標，但仍需搭配血糖、症狀與醫師判斷。某些貧血、溶血、輸血、腎臟病或血紅素變異可能影響 HbA1c 判讀。"
+  },
+  {
+    "id": "PF19",
+    "question": "血脂檢查一定要空腹嗎？",
+    "answer": "部分血脂檢查，尤其三酸甘油脂或某些 LDL 計算，可能需要空腹。MedlinePlus 提到膽固醇檢查有時需空腹 9–12 小時；CDC 也建議應詢問醫師如何準備。"
+  },
+  {
+    "id": "PF20",
+    "question": "肝功能 AST、ALT 高代表肝炎嗎？",
+    "answer": "AST、ALT 升高代表可能有肝細胞受損，但原因不只肝炎，也可能與脂肪肝、酒精、藥物、肌肉損傷或其他疾病有關。肝功能檢查本身通常不能單獨診斷特定疾病。"
+  },
+  {
+    "id": "PF21",
+    "question": "膽紅素高是什麼意思？",
+    "answer": "膽紅素高可能與黃疸、肝臟、膽道或紅血球破壞增加有關。若合併眼白變黃、茶色尿、灰白便、腹痛或發燒，應儘快就醫。"
+  },
+  {
+    "id": "PF22",
+    "question": "腎功能 Creatinine / eGFR 是什麼？",
+    "answer": "Creatinine 是肌酸酐，常用來評估腎臟排除廢物的能力；eGFR 是估算腎絲球過濾率，比單看肌酸酐更能反映腎功能。"
+  },
+  {
+    "id": "PF23",
+    "question": "尿液檢查可以看出什麼？",
+    "answer": "尿液檢查常用來評估泌尿道感染、腎臟問題、糖尿病或其他代謝狀況，內容可能包含尿蛋白、尿糖、潛血、白血球、亞硝酸鹽與尿沉渣等。"
+  },
+  {
+    "id": "PF24",
+    "question": "尿液要怎麼留才正確？",
+    "answer": "多數尿液檢查會建議留「中段尿」：先清潔，再先排掉前段尿，接中間尿液到容器。這樣可減少皮膚或外陰部細菌污染檢體。"
+  },
+  {
+    "id": "PF25",
+    "question": "月經來可以驗尿嗎？",
+    "answer": "若非急迫檢查，建議避開月經期間，因為經血可能造成尿潛血或尿沉渣判讀困難。若醫師仍要求檢查，請主動告知目前正在生理期。"
+  },
+  {
+    "id": "PF26",
+    "question": "尿蛋白或尿潛血陽性嚴重嗎？",
+    "answer": "不一定。可能與感染、結石、運動、月經污染、腎臟疾病或其他原因有關。若反覆陽性或合併水腫、高血壓、泡泡尿、血尿，需回診追蹤。"
+  },
+  {
+    "id": "PF27",
+    "question": "糞便潛血陽性是不是大腸癌？",
+    "answer": "不一定。糞便潛血代表糞便中偵測到血液，可能來自痔瘡、息肉、潰瘍、發炎或腫瘤等。陽性結果通常需要進一步檢查找原因，不能單靠潛血診斷癌症。"
+  },
+  {
+    "id": "PF28",
+    "question": "糞便檢體怎麼採比較好？",
+    "answer": "依採檢盒說明採集，避免混入尿液、水或清潔劑。若是糞便潛血、寄生蟲、培養或腸胃炎檢查，採集方式與保存條件可能不同，請依檢驗單或檢驗科指示。"
+  },
+  {
+    "id": "PF29",
+    "question": "CRP / ESR 高代表什麼？",
+    "answer": "CRP 與 ESR 都是發炎相關指標。CRP 可反映體內發炎程度，但不是特異性檢查，無法單獨指出發炎位置或原因；需搭配症狀、CBC、影像或其他檢查判讀。"
+  },
+  {
+    "id": "PF30",
+    "question": "腫瘤標記高是不是癌症？",
+    "answer": "不一定。腫瘤標記可能由癌細胞產生，也可能因良性疾病、發炎或其他身體狀況上升。腫瘤標記通常用於輔助診斷、追蹤治療反應或復發風險，不能單獨診斷或排除癌症。"
+  },
+  {
+    "id": "PF31",
+    "question": "抽血櫃檯服務時間",
+    "answer": "星期一至五：上午7:30～晚上21:30止。\n星期六：上午7:30～中午12:00止。"
+  },
+  {
+    "id": "PF32",
+    "question": "115年國定假日抽血櫃台服務時間",
+    "answer": "115/9/25 (五) 中秋節 全日暫停抽血服務\n115/9/28 (一) 教師節 上午7:30～下午17:00止 (晚上暫停抽血服務)\n115/10/9 (五) 國慶日補假 上午7:30～下午17:00止 (晚上暫停抽血服務)\n115/10/10 (六) 國慶日上午7:30～中午12:00止。\n115/10/25 (日) 光復日 無門診，無抽血服務\n115/10/26 (一) 光復日補假 上午7:30～下午17:00止 (晚上暫停抽血服務)\n115/12/25 (五) 行憲紀念日上午7:30～下午17:00止 (晚上暫停抽血服務)"
+  },
+  {
+    "id": "PF33",
+    "question": "使用「中國醫點通」為什麼看不到報告",
+    "answer": "1、先確認院所選擇為”新竹附設醫院”，而不是”中國醫藥大學附設醫院”。我們醫院全名為中國醫藥大學新竹附醫院，所以應該選擇”新竹附設醫院”。\n2、中國醫點通查詢檢驗報告，只能查到一般生化檢驗、血液檢驗、血糖等抽血檢驗報告。",
+    "keywords": "中國醫點通 點通 看不到報告 報告查不到 新竹附設醫院 中國醫藥大學附設醫院 院所選擇 檢驗報告 生化 血液 血糖"
+  },
+  {
     "id": "MQ001",
     "question": "抽血一定要空腹嗎？",
     "answer": "不一定。血糖、血脂、部分代謝檢查常需要空腹，但血球、肝腎功能、甲狀腺等很多項目不一定需要，請依檢驗單或醫囑為準。"
@@ -7501,6 +7507,7 @@ function tokenizeQuestion(value) {
 
 const qaKeywordRules = [
   { pattern: /(抽血單|檢驗單).*(遺失|不見|弄丟)|(遺失|不見|弄丟).*(抽血單|檢驗單)|抽血單|檢驗單遺失/, ids: ["MQ078"] },
+  { pattern: /(中國醫點通|點通|app|手機).*(報告|檢驗|看不到|查不到|院所|新竹附設醫院)|(報告|檢驗|看不到|查不到|院所).*(中國醫點通|點通|app|手機)|新竹附設醫院|院所要選|選哪個院所|選錯院所/, ids: ["PF33"] },
   { pattern: /ctdna/, ids: ["LB2"] },
   { pattern: /(液態切片|液體切片|ngs|次世代定序|panel).*(貴|昂貴)|怎麼那麼貴/, ids: ["LB29"] },
   { pattern: /(液態切片|液體切片|ngs|次世代定序|panel).*(費用|價格|多少錢)|(費用|價格|多少錢).*(液態切片|液體切片|ngs|次世代定序|panel)/, ids: ["LB28"] },
@@ -7549,45 +7556,107 @@ function renderQaContent(item, safety) {
   return `<strong>${item.question}</strong><br>${formatAnswer(item.answer)}<br><br>${safety}`;
 }
 
-function findQaCandidates(message) {
+const qaSemanticGroups = [
+  ["抽血單", "檢驗單", "單子", "抽血單子", "檢驗單子"],
+  ["遺失", "不見", "弄丟", "忘記帶", "沒帶", "找不到"],
+  ["空腹", "禁食", "不能吃", "沒吃東西"],
+  ["藥", "用藥", "吃藥", "藥物", "降血糖藥", "高血壓藥"],
+  ["瘀青", "血腫", "黑青", "腫起來"],
+  ["頭暈", "暈針", "快昏倒"],
+  ["報告", "檢驗報告", "紅字", "異常"],
+  ["血糖", "糖尿病", "HbA1c", "糖化血色素"],
+  ["肝功能", "肝指數", "AST", "ALT", "GOT", "GPT"],
+  ["腎功能", "腎臟", "肌酸酐", "Creatinine", "eGFR", "BUN"],
+  ["中國醫點通", "點通", "APP", "app", "手機查報告", "線上報告", "報告查不到", "看不到報告", "新竹附設醫院", "院所選擇", "院所要選", "選哪個院所", "選錯院所"]
+];
+
+function qaTerms(value) {
+  const raw = String(value || "");
+  const ascii = raw.match(/[A-Za-z][A-Za-z0-9.+-]{1,}/g) || [];
+  const normalized = normalize(raw);
+  const cjk = raw
+    .replace(/[A-Za-z0-9.+-]+/g, " ")
+    .split(/[，、。；：？！\s,.;:?!()[\]{}"'「」『』/\\-]+/)
+    .map((term) => normalize(term))
+    .filter((term) => term.length >= 2);
+  return [...new Set([normalized, ...ascii.map(normalize), ...cjk].filter((term) => term.length >= 2))];
+}
+
+function expandedQaTerms(message) {
+  const base = qaTerms(message);
+  const expanded = new Set(base);
   const normalizedMessage = normalize(message);
-  const firstDirectRule = qaKeywordRules.find((rule) => rule.pattern.test(normalizedMessage));
-  const directIds = firstDirectRule ? firstDirectRule.ids : [];
+  qaSemanticGroups.forEach((group) => {
+    if (group.some((term) => normalizedMessage.includes(normalize(term)))) {
+      group.forEach((term) => expanded.add(normalize(term)));
+    }
+  });
+  return [...expanded].filter(Boolean);
+}
+
+function qaSemanticScore(item, message) {
+  const normalizedMessage = normalize(message);
+  const terms = expandedQaTerms(message);
+  const question = normalize(item.question);
+  const keywords = normalize(item.keywords || "");
+  const answer = normalize(item.answer);
+  const haystack = `${question} ${keywords} ${answer} ${normalize(item.category || "")} ${normalize(item.id)}`;
+  let score = 0;
+
+  if (normalizedMessage && question.includes(normalizedMessage)) score += 80;
+  if (normalizedMessage && haystack.includes(normalizedMessage)) score += 45;
+  if (normalizedMessage.includes(normalize(item.id))) score += 100;
+
+  terms.forEach((term) => {
+    if (term.length < 2) return;
+    const weight = term.length >= 4 ? 14 : 7;
+    if (question.includes(term)) score += weight + 10;
+    if (keywords.includes(term)) score += weight + 18;
+    if (answer.includes(term)) score += Math.max(3, Math.floor(weight / 2));
+    if (term.includes(question) && question.length >= 4) score += 12;
+  });
+
+  qaSemanticGroups.forEach((group) => {
+    const queryHits = group.filter((term) => normalizedMessage.includes(normalize(term))).length;
+    if (!queryHits) return;
+    const itemHits = group.filter((term) => haystack.includes(normalize(term))).length;
+    if (itemHits) score += Math.min(28, queryHits * itemHits * 7);
+  });
+
+  return score;
+}
+
+function findQaCandidateEntries(message) {
+  const normalizedMessage = normalize(message);
+  const firstDirectRule = qaKeywordRules.find((rule) => rule.pattern.test(normalizedMessage) || rule.pattern.test(String(message || "")));
   const candidateMap = new Map();
 
-  directIds.forEach((id, index) => {
+  (firstDirectRule?.ids || []).forEach((id, index) => {
     const item = allQaItems.find((entry) => entry.id === id);
-    if (item) candidateMap.set(item.id, { item, score: 100 - index });
+    if (item) candidateMap.set(item.id, { item, score: 160 - index, direct: true });
   });
 
   allQaItems.forEach((item) => {
-    const questionTokens = tokenizeQuestion(item.question);
-    const haystack = normalize(`${item.question} ${item.answer} ${item.keywords || ""}`);
-    let score = 0;
-
-    String(item.keywords || "").split(/[,，、\s]+/).forEach((term) => {
-      const normalizedTerm = normalize(term);
-      if (normalizedTerm.length >= 2 && normalizedMessage.includes(normalizedTerm)) score += normalizedTerm.length >= 4 ? 8 : 6;
-    });
-
-    questionTokens.forEach((token) => {
-      if (normalizedMessage.includes(token)) score += 4;
-      if (haystack.includes(normalizedMessage) && normalizedMessage.length >= 2) score += 2;
-    });
-
-    if (normalizedMessage.includes(normalize(item.id))) score += 10;
-    if (normalizedMessage.length >= 2 && haystack.includes(normalizedMessage)) score += 3;
-
-    if (score >= 3) {
-      const existing = candidateMap.get(item.id);
-      if (!existing || score > existing.score) candidateMap.set(item.id, { item, score });
-    }
+    const score = qaSemanticScore(item, message);
+    if (score < 18) return;
+    const existing = candidateMap.get(item.id);
+    if (!existing || score > existing.score) candidateMap.set(item.id, { item, score, direct: false });
   });
 
   return [...candidateMap.values()]
     .sort((a, b) => b.score - a.score)
-    .slice(0, 5)
-    .map((entry) => entry.item);
+    .slice(0, 5);
+}
+
+function findQaCandidates(message) {
+  const entries = findQaCandidateEntries(message);
+  if (!entries.length) return [];
+  const [top, second] = entries;
+  if (top.direct || top.score >= 78 || (top.score >= 55 && (!second || top.score - second.score >= 18))) {
+    return [top.item];
+  }
+  if (top.score < 30) return [];
+  return entries.map((entry) => entry.item);
 }
 
 function findClinicalQa(message) {
@@ -7757,7 +7826,7 @@ function localAssistantReply(message, consultMode = "education") {
   if (/(抽血單|檢驗單).*(遺失|不見|弄丟)|(遺失|不見|弄丟).*(抽血單|檢驗單)|抽血單|檢驗單遺失/.test(String(message || ""))) {
     return {
       content: `<strong>檢驗單 (或稱抽血單 )遺失怎麼辦？</strong><br>可於預定的時間內，直接拿健保卡或身分證至抽血櫃台抽血檢驗。<br><br>${safety}`,
-      source: "QA題庫v1.4.docx；300 題民眾最關心的抽血疑問與檢驗報告 Q&A；MQ078"
+      source: "QA題庫v1.5.docx；300 題民眾最關心的抽血疑問與檢驗報告 Q&A；MQ078"
     };
   }
 
